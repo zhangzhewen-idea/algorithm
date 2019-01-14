@@ -1,53 +1,35 @@
 package org.zhangzhewen.algorithm.sort;
 
 public class BubbleSort {
-    /*
-     * 冒泡排序
-     * 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
-     * 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
-     * 针对所有的元素重复以上的步骤，除了最后一个。
-     * 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
-     * @param numbers 需要排序的整型数组
-     */
-    public static void bubbleSort(int[] numbers)
-    {
-        int temp = 0;
-        int size = numbers.length;
-        for(int i = 0 ; i < size-1; i ++)
-        {
-            for(int j = 0 ;j < size-1-i ; j++)
-            {
-                if(numbers[j] > numbers[j+1])  //交换两数位置
-                {
-                    temp = numbers[j];
-                    numbers[j] = numbers[j+1];
-                    numbers[j+1] = temp;
+
+    // 冒泡排序，a 表示数组，n 表示数组大小
+    public static int[] bubbleSort(int[] a ) {
+        int length = a.length;
+        for(int i = 1 ;i < length ; i++){
+            boolean noChanged = true;
+            for(int j = 0 ; j < length - i ; j++){
+                if(a[j]>a[j+1]){
+                    int tmp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = tmp;
+                    noChanged = false;
                 }
             }
-        }
-    }
-
-    public static int[] bubbleSort2(int[] numbers){
-
-        int temp = 0;
-        int size = numbers.length;
-        for(int i = 0 ;i < size - 1; i++){
-            for( int j = 0 ; j < size - i - 1; j++){
-                if(numbers[j]>numbers[j+1]){
-                    temp = numbers[j];
-                    numbers[j] = numbers[j+1];
-                    numbers[j+1] = temp;
-                }
+            if(noChanged){
+                break;
             }
         }
-
-        return numbers;
+        return a;
     }
+
+
 
     public static void main(String[] args) {
-        System.out.println(bubbleSort2(new int[]{2, 3, 5, 1, 10}));
+        int[] a = bubbleSort(new int[]{10,8, 7, 5 ,3});
+        for(int e : a){
+            System.out.print(e+" ");
+        }
     }
-
 
 
 }
