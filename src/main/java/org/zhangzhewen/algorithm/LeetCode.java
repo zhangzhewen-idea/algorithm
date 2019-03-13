@@ -1,7 +1,5 @@
 package org.zhangzhewen.algorithm;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import java.util.*;
 
 /**
@@ -11,41 +9,41 @@ import java.util.*;
  * @date 2019/2/5
  */
 public class LeetCode {
-        public static int[] twoSum(int[] nums, int target) {
-            Map<Integer,Integer> map = new HashMap();
-            for(int i = 0 ; i < nums.length;i ++){
-                map.put(nums[i],i);
-            }
-            for(int i = 0 ; i < nums.length ; i ++){
-                Integer index = map.get(target - nums[i]);
-                if(index !=null){
-                    return new int[]{i,index};
-                }
-            }
-            return null;
+    public static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap();
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
         }
+        for (int i = 0; i < nums.length; i++) {
+            Integer index = map.get(target - nums[i]);
+            if (index != null) {
+                return new int[]{i, index};
+            }
+        }
+        return null;
+    }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {
-        if(nums==null){
+        if (nums == null) {
             return null;
         }
         Deque<Integer> window = new LinkedList<>();
         List<Integer> result = new ArrayList<>();
-        for(int i = 0 ; i < nums.length ; i ++){
+        for (int i = 0; i < nums.length; i++) {
             //移除窗口外元素
-            if(i>=k&&window.getFirst()<=i-k){
+            if (i >= k && window.getFirst() <= i - k) {
                 window.removeFirst();
             }
-            while(window.size()>0 && nums[window.getLast()]<=nums[i]){
+            while (window.size() > 0 && nums[window.getLast()] <= nums[i]) {
                 window.removeLast();
             }
             window.add(i);
-            if(i >= k - 1){
+            if (i >= k - 1) {
                 result.add(nums[window.getFirst()]);
             }
         }
-        int [] res = new int[result.size()];
-        for(int i = 0 ;i < result.size();i++){
+        int[] res = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
             res[i] = result.get(i);
         }
         return res;
@@ -54,14 +52,87 @@ public class LeetCode {
     public static void main(String[] args) {
 //        twoSum(new int[]{3,2,4},6);
 
-        /*
-        int[] result = maxSlidingWindow(new int[]{1,10,2,-1,3},2);
-        //期望的是 10 10 2 3
-        for(int i = 0;i<result.length;i++){
-            System.out.print(result[i]+" ");
-        }
-        */
+//        int[] result = maxSlidingWindow(new int[]{1,10,2,-1,3},2);
+//        //期望的是 10 10 2 3
+//        for(int i = 0;i<result.length;i++){
+//            System.out.print(result[i]+" ");
+//        }
+//
+//        isAnagram("aacc",
+//                "ccac");
+//        System.out.println(r(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 0, 6, 1));
+
+
+
+
 
     }
+
+    //二分查找的while实现
+    public static int bsearch(int[] nums, int target) {
+        int low = 0;
+        int high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    // 二分查找的递归实现
+    public int bsearch(int[] a, int n, int val) {
+        return bsearchInternally(a, 0, n - 1, val);
+    }
+    private int bsearchInternally(int[] a, int low, int high, int value) {
+        if (low > high) {
+            return -1;
+        }
+
+        int mid = low + ((high - low) >> 1);
+        if (a[mid] < value) {
+            return bsearchInternally(a, mid + 1, high, value);
+        } else if (a[mid] > value) {
+            return bsearchInternally(a, low, mid - 1, value);
+        } else {
+            return mid;
+        }
+    }
+
+
+    public static boolean isAnagram(String s, String t) {
+        if (s.equals(t)) {
+            return true;
+        }
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char k = s.charAt(i);
+            Integer v = map.get(k);
+            if (v == null) {
+                map.put(k, 1);
+            } else {
+                map.put(k, ++v);
+            }
+        }
+        for (int i = 0; i < t.length(); i++) {
+            char a = t.charAt(i);
+            Integer v = map.get(a);
+            if (v == null || --v == -1) {
+                return false;
+            }
+            map.put(a, v);
+        }
+        return true;
+    }
+
 
 }
