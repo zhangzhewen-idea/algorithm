@@ -9,8 +9,7 @@ package org.zhangzhewen.algorithm.sort;
 public class SelectionSort extends Sortable{
 
 
-    @Override
-    public int[] sort(int[] a) {
+    public int[] sort1(int[] a) {
 
         int length = a.length;
         for(int i = 0 ; i < length - 1 ; i ++){
@@ -28,6 +27,21 @@ public class SelectionSort extends Sortable{
         }
         return a;
     }
+
+
+
+
+
+    public int[] sort(int[] a){
+        return null;
+    }
+
+
+
+
+
+
+
 
     public static void main(String[] args) {
         new SelectionSort().print();

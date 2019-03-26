@@ -2,8 +2,8 @@ package org.zhangzhewen.algorithm.sort;
 
 public class InsertSort extends Sortable{
 
-    @Override
-    public int[] sort(int[] a) {
+
+    public int[] sort2(int[] a) {
         int length = a.length;
         for(int i = 1 ; i < length ; i++){
             int tmp = a[i];
@@ -18,6 +18,27 @@ public class InsertSort extends Sortable{
         }
         return a;
     }
+
+
+    public int[] sort(int[] a){
+
+
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

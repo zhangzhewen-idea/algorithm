@@ -60,7 +60,7 @@ public class LeetCode {
 //
 //        isAnagram("aacc",
 //                "ccac");
-//        System.out.println(r(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 0, 6, 1));
+        System.out.println(bsearch2(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 4));
 
 
 
@@ -85,6 +85,38 @@ public class LeetCode {
         return -1;
     }
 
+    public static int bsearch2(int[] a,int n){
+        int l=0;
+        int h=a.length-1;
+        while(l<=h){
+            int mid = l+(h-l)/2;
+            if(a[mid]<n){
+                l = mid+1;
+            }else if (a[mid]>n){
+                h = mid-1;
+            }else{
+                return mid;
+            }
+        }
+        return -1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // 二分查找的递归实现
     public int bsearch(int[] a, int n, int val) {
         return bsearchInternally(a, 0, n - 1, val);
@@ -103,7 +135,6 @@ public class LeetCode {
             return mid;
         }
     }
-
 
     public static boolean isAnagram(String s, String t) {
         if (s.equals(t)) {

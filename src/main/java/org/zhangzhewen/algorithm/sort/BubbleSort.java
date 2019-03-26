@@ -24,6 +24,34 @@ public class BubbleSort {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void main(String[] args) {
         int[] a = bubbleSort(new int[]{10,8, 7, 5 ,3});
         for(int e : a){

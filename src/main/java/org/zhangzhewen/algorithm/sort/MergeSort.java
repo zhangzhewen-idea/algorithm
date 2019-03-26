@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 public class MergeSort extends Sortable{
 
-    @Override
-    public int[] sort(int[] a) {
+    public int[] sort2(int[] a) {
 
         if(a.length<2){
             return a;
@@ -18,7 +17,7 @@ public class MergeSort extends Sortable{
         return merge(sort(left),sort(right));
     }
 
-    private int[] merge(int[] left,int[] right){
+    private int[] merge2(int[] left,int[] right){
 
         int[] result = new int[left.length+right.length];
         int i=0,l=0,r=0;
@@ -37,6 +36,51 @@ public class MergeSort extends Sortable{
         }
         return result;
     }
+
+    public int[] sort(int[] a){
+        if(a.length<2){
+            return a;
+        }
+        int mid = a.length/2;
+        int[] r = Arrays.copyOfRange(a,0,mid);
+        int[] l = Arrays.copyOfRange(a,mid,a.length);
+        return merge2(sort(r),sort(l));
+    }
+
+    public int[] merge(int[] right,int[] left){
+        int [] result = new int[right.length+left.length];
+        int r=0,l=0,i =0;
+        while(i<result.length&&r<right.length&&l<left.length){
+            if(right[r]>left[l]){
+                result[i++]=left[l++];
+            }else{
+                result[i++]=right[r++];
+            }
+        }
+        while(r<right.length){
+             result[i++] = right[r++];
+        }
+        while(l<left.length){
+            result[i++] = left[l++];
+        }
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

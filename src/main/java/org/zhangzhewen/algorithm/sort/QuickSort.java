@@ -2,21 +2,20 @@ package org.zhangzhewen.algorithm.sort;
 
 public class QuickSort extends Sortable{
 
-    @Override
-    public int[] sort(int[] a) {
-        return quickSort(a,0,a.length-1);
+    public int[] sort2(int[] a) {
+        return quickSort2(a,0,a.length-1);
     }
 
-    private int[] quickSort(int[] a,int left,int right){
+    private int[] quickSort2(int[] a,int left,int right){
         if(left<right){
-            int partitionIndex = partition(a,left,right);
-            quickSort(a,left,partitionIndex-1);
-            quickSort(a,partitionIndex+1,right);
+            int partitionIndex = partition2(a,left,right);
+            quickSort2(a,left,partitionIndex-1);
+            quickSort2(a,partitionIndex+1,right);
         }
         return a;
     }
 
-    private int partition(int[] a,int left,int right){
+    private int partition2(int[] a,int left,int right){
         int pivot = left;
         int index= pivot+1;
         for(int i = index ; i <= right ; i ++){
@@ -34,6 +33,49 @@ public class QuickSort extends Sortable{
         a[i] = a[j];
         a[j] = temp;
     }
+
+    public int[] sort(int[] a){
+        quickSort(a,0,a.length-1);
+        return a;
+    }
+
+    public void quickSort(int[] a,int l,int r){
+        if(l>=r){
+            return;
+        }
+        int midIndex = partition(a,l,r);
+        quickSort(a,l,midIndex-1);
+        quickSort(a,midIndex+1,r);
+    }
+
+    public int partition(int[] a,int l,int r){
+        int pivot = l;
+        int index = pivot+1;
+        for(int i = index;i<=r;i++){
+            if(a[pivot]<a[i]){
+                swap(a,i,index++);
+            }
+        }
+        index = index - 1;
+        swap(a,pivot,index);
+        return index;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
