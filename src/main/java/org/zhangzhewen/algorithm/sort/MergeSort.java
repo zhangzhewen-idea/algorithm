@@ -14,7 +14,7 @@ public class MergeSort extends Sortable{
         int[] left = Arrays.copyOfRange(a,0,middle);
         int[] right = Arrays.copyOfRange(a,middle,a.length);
 
-        return merge(sort(left),sort(right));
+        return merge2(sort(left),sort(right));
     }
 
     private int[] merge2(int[] left,int[] right){
@@ -37,35 +37,10 @@ public class MergeSort extends Sortable{
         return result;
     }
 
-    public int[] sort(int[] a){
-        if(a.length<2){
-            return a;
-        }
-        int mid = a.length/2;
-        int[] r = Arrays.copyOfRange(a,0,mid);
-        int[] l = Arrays.copyOfRange(a,mid,a.length);
-        return merge2(sort(r),sort(l));
+    @Override
+    int[] sort(int[] a) {
+        return new int[0];
     }
-
-    public int[] merge(int[] right,int[] left){
-        int [] result = new int[right.length+left.length];
-        int r=0,l=0,i =0;
-        while(i<result.length&&r<right.length&&l<left.length){
-            if(right[r]>left[l]){
-                result[i++]=left[l++];
-            }else{
-                result[i++]=right[r++];
-            }
-        }
-        while(r<right.length){
-             result[i++] = right[r++];
-        }
-        while(l<left.length){
-            result[i++] = left[l++];
-        }
-        return result;
-    }
-
 
 
 
@@ -87,6 +62,4 @@ public class MergeSort extends Sortable{
     public static void main(String[] args) {
         new MergeSort().print();
     }
-
-
 }

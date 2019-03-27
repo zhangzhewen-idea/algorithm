@@ -9,6 +9,26 @@ import java.util.*;
  * @date 2019/2/5
  */
 public class LeetCode {
+
+    public static void main(String[] args) {
+//        twoSum(new int[]{3,2,4},6);
+
+//        int[] result = maxSlidingWindow2(new int[]{1,10,2,-1,3},2);
+//        //期望的是 10 10 2 3
+//        for(int i = 0;i<result.length;i++){
+//            System.out.print(result[i]+" ");
+//        }
+//
+//        isAnagram("aacc",
+//                "ccac");
+        System.out.println(bsearch(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 4));
+
+
+
+
+
+    }
+
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap();
         for (int i = 0; i < nums.length; i++) {
@@ -49,24 +69,10 @@ public class LeetCode {
         return res;
     }
 
-    public static void main(String[] args) {
-//        twoSum(new int[]{3,2,4},6);
-
-//        int[] result = maxSlidingWindow(new int[]{1,10,2,-1,3},2);
-//        //期望的是 10 10 2 3
-//        for(int i = 0;i<result.length;i++){
-//            System.out.print(result[i]+" ");
-//        }
-//
-//        isAnagram("aacc",
-//                "ccac");
-        System.out.println(bsearch2(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 4));
 
 
 
 
-
-    }
 
     //二分查找的while实现
     public static int bsearch(int[] nums, int target) {
@@ -86,18 +92,8 @@ public class LeetCode {
     }
 
     public static int bsearch2(int[] a,int n){
-        int l=0;
-        int h=a.length-1;
-        while(l<=h){
-            int mid = l+(h-l)/2;
-            if(a[mid]<n){
-                l = mid+1;
-            }else if (a[mid]>n){
-                h = mid-1;
-            }else{
-                return mid;
-            }
-        }
+
+        //todo
         return -1;
     }
 
@@ -135,6 +131,18 @@ public class LeetCode {
             return mid;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static boolean isAnagram(String s, String t) {
         if (s.equals(t)) {
