@@ -11,7 +11,7 @@ import java.util.*;
 public class LeetCode {
 
     public static void main(String[] args) {
-//        twoSum(new int[]{3,2,4},6);
+        twoSum(new int[]{3,2,4},6);
 
 //        int[] result = maxSlidingWindow2(new int[]{1,10,2,-1,3},2);
 //        //期望的是 10 10 2 3
@@ -21,7 +21,7 @@ public class LeetCode {
 //
 //        isAnagram("aacc",
 //                "ccac");
-        System.out.println(bsearch(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 4));
+//        System.out.println(bsearch(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 4));
 
 
 
@@ -29,18 +29,19 @@ public class LeetCode {
 
     }
 
-    public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap();
-        for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
+    public static Map<Integer,Integer> twoSum(int[] a,int target){
+        Map<Integer,Integer> result = new HashMap<>();
+        Map<Integer,Integer> valueAndIndex = new HashMap<>();
+        for(int i = 0 ; i < a.length;i++){
+            valueAndIndex.put(a[i],i);
         }
-        for (int i = 0; i < nums.length; i++) {
-            Integer index = map.get(target - nums[i]);
-            if (index != null) {
-                return new int[]{i, index};
+        for(int i = 0 ; i < a.length;i++){
+            Integer anotherIndex = valueAndIndex.get(target-a[i]);
+            if(anotherIndex.intValue()!=i){
+                result.put(i,anotherIndex);
             }
         }
-        return null;
+        return result;
     }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {

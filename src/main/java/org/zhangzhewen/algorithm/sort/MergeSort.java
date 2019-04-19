@@ -39,8 +39,52 @@ public class MergeSort extends Sortable{
 
     @Override
     int[] sort(int[] a) {
-        return new int[0];
+
+        if(a.length<2){
+            return a;
+        }
+
+        int mid = a.length/2;
+        int[] l = Arrays.copyOfRange(a,0,mid);
+        int[] r = Arrays.copyOfRange(a,mid,a.length);
+        return merge(sort(l),sort(r));
     }
+
+    int[] merge(int[] l,int[] r){
+        int[] res = new int[l.length+r.length];
+        int li = 0,ri=0,index = 0;
+        while(li<l.length&&ri<r.length&&index<res.length){
+            if(l[li]<r[ri]){
+                res[index++]=l[li++];
+            }else{
+                res[index++]=r[ri++];
+            }
+        }
+        while(li<l.length){
+            res[index++]=l[li++];
+        }
+        while(ri<r.length){
+            res[index++]=r[ri++];
+        }
+
+        return res;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

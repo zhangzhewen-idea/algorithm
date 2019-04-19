@@ -22,8 +22,20 @@ public class InsertSort extends Sortable{
 
     public int[] sort(int[] a){
 
+         for(int i = 1 ; i < a.length;i++){
+             int tmp = a[i];
+             int j = i;
+             while(j>0&&tmp<a[--j]){
+                 a[j+1]=a[j];
+             }
+             if(j!=i){
+                 a[j]=tmp;
+             }
+         }
 
-        return null;
+         return a;
+
+
     }
 
 

@@ -34,32 +34,54 @@ public class QuickSort extends Sortable{
         a[j] = temp;
     }
 
+
     public int[] sort(int[] a){
+
         quickSort(a,0,a.length-1);
-        return a;
+
+
+
+
+       return a;
     }
 
     public void quickSort(int[] a,int l,int r){
         if(l>=r){
             return;
         }
-        int midIndex = partition(a,l,r);
-        quickSort(a,l,midIndex-1);
-        quickSort(a,midIndex+1,r);
+        int p = partition(a,l,r);
+        quickSort(a,l,p-1);
+        quickSort(a,p+1,r);
     }
 
     public int partition(int[] a,int l,int r){
         int pivot = l;
-        int index = pivot+1;
-        for(int i = index;i<=r;i++){
-            if(a[pivot]<a[i]){
+        int index = l+1;
+        for(int i = index;i <=r;i++){
+            if(a[i]<a[pivot]){
                 swap(a,i,index++);
             }
         }
-        index = index - 1;
-        swap(a,pivot,index);
-        return index;
+
+        swap(a,pivot,index-1);
+        return index-1;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
