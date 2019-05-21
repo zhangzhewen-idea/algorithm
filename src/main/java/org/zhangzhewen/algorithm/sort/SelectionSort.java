@@ -34,16 +34,18 @@ public class SelectionSort extends Sortable{
 
     public int[] sort(int[] a){
 
-        for(int i = 0 ; i < a.length;i++){
-            int minIndex = i;
-            for(int j = i+1;j<a.length;j++){
+        for (int i = 0; i < a.length; i++) {
+            int minIndex=i;
+            for (int j = i+1; j < a.length; j++) {
                 if(a[minIndex]>a[j]){
-                    minIndex = j;
+                    minIndex=j;
                 }
             }
-            int tmp = a[i];
-            a[i] = a[minIndex];
-            a[minIndex] = tmp;
+            if(minIndex!=i){
+                int tmp = a[minIndex];
+                a[minIndex] = a[i];
+                a[i] = tmp;
+            }
         }
 
         return a;

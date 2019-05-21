@@ -66,7 +66,9 @@ public class CountingSort extends Sortable {
 
     @Override
     public int[] sort(int[] a) {
-        return countingSort2(a);
+
+
+        return a;
     }
 
 
