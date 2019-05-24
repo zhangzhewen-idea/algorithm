@@ -10,8 +10,56 @@ public class BinarySearchTreeValidation {
 
     public static void main(String[] args) {
 //        System.out.println(byInorder(BinaryTreeNode.buildTrees()));
-        System.out.println(recurse(BinaryTreeNode.buildTrees(), null, null));
+//        System.out.println(recurse(BinaryTreeNode.buildTrees(), null, null));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private static BinaryTreeNode prev;
     public static boolean byInorder(BinaryTreeNode n){
