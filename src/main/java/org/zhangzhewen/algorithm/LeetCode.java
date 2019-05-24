@@ -174,5 +174,30 @@ public class LeetCode {
         return true;
     }
 
+    public static double myPow(double x,int n){
+        /*//recurse
+        if(n==0){
+            return 1;
+        }
+        if(n<0){
+            n = -n;
+            x = 1/x;
+        }
+        return (n&1)==1?x*myPow(x,n-1):myPow(x*x,n/2);*/
+        //while
+        if(n<0){
+            n = -n;
+            x = 1/x;
+        }
+        double pow = 1;
+        while(n>0){
+            if((n&1)==1){
+                pow *= x;
+            }
+            n >>= 1;
+            x *= x;
+        }
+        return pow;
+    }
 
 }
