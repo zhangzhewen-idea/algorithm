@@ -28,13 +28,6 @@ public class QuickSort extends Sortable{
         return index-1;
     }
 
-    private void swap(int[]a ,int i,int j){
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
-
-
     public int[] sort(int[] a){
         quickSort(a,0,a.length-1);
 

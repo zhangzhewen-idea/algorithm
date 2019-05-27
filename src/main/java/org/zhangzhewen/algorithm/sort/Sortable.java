@@ -7,4 +7,9 @@ public abstract class Sortable {
             System.out.print(e+" ");
         }
     }
+    protected void swap(int[] a,int i,int j){
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
 }

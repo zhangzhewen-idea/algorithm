@@ -66,6 +66,32 @@ public class CountingSort extends Sortable {
 
     @Override
     public int[] sort(int[] a) {
+        int min = a[0];
+        int max = a[0];
+        for (int i = 0; i < a.length; i++) {
+            if(min>a[i]){
+                min=a[i];
+            }
+            if(max<a[i]){
+                max=a[i];
+            }
+        }
+
+        int bias = min - max;
+        int[] res = new int[-bias];
+        for (int i = 0; i < a.length; i++) {
+            res[a[i]+bias] ++;
+        }
+
+        int index=0;
+        for (int i = 0; i < res.length; i++) {
+            while(res[i]>0){
+                a[index] = i+bias;
+                res[i]--;
+            }
+        }
+
+
 
 
         return a;
