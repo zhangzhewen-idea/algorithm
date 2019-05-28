@@ -77,8 +77,8 @@ public class CountingSort extends Sortable {
             }
         }
 
-        int bias = min - max;
-        int[] res = new int[-bias];
+        int bias = -min ;
+        int[] res = new int[max-min+1];
         for (int i = 0; i < a.length; i++) {
             res[a[i]+bias] ++;
         }
@@ -86,8 +86,9 @@ public class CountingSort extends Sortable {
         int index=0;
         for (int i = 0; i < res.length; i++) {
             while(res[i]>0){
-                a[index] = i+bias;
+                a[index] = i-bias;
                 res[i]--;
+                index++;
             }
         }
 

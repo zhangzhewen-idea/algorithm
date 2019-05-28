@@ -11,7 +11,7 @@ import java.util.*;
 public class LeetCode {
 
     public static void main(String[] args) {
-        twoSum(new int[]{3,2,4},6);
+//        twoSum(new int[]{3,2,4},6);
 
 //        int[] result = maxSlidingWindow2(new int[]{1,10,2,-1,3},2);
 //        //期望的是 10 10 2 3
@@ -21,10 +21,11 @@ public class LeetCode {
 //
 //        isAnagram("aacc",
 //                "ccac");
-//        System.out.println(bsearch(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 4));
+        System.out.println(bsearch2(new int[]{-2,-1, 0, 1, 2, 3, 4, 5}, 4,0,8));
 
 
-
+//        int v = 7;
+//        System.out.println(josephusProblem(v));
 
 
     }
@@ -92,11 +93,22 @@ public class LeetCode {
         return -1;
     }
 
-    public static int bsearch2(int[] a,int n){
-
-        //todo
-        return -1;
+    public static int bsearch2(int[] a,int n,int l,int r){
+        if(l>r){
+            return -1;
+        }
+        int mid = l+(r-l)/2;
+        if(a[mid]>n){
+            return bsearch2(a,n,l,mid+1);
+        }
+        else if(a[mid]<n){
+            return bsearch2(a,n,mid-1,r);
+        }else{
+            return mid;
+        }
     }
+
+
 
 
 
@@ -198,6 +210,29 @@ public class LeetCode {
             x *= x;
         }
         return pow;
+    }
+
+    public static int josephusProblem(List<Integer> a){
+        /*//brute
+        int index = 1;
+        while(a.size()>1){
+            Iterator<Integer> b = a.iterator();
+            while (b.hasNext()) {
+                b.next();
+                if( (index++&1)==0){
+                    b.remove();
+                }
+            }
+
+        }*/
+        return a.get(0);
+    }
+
+    public static int josephusProblem(int a){
+        if(a==3){
+            return 3;
+        }
+        return ( (a&1)==1)?2*josephusProblem(a/2)+1:2*josephusProblem(a/2)-1;
     }
 
 }
