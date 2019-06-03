@@ -28,6 +28,19 @@ public class QuickSort extends Sortable{
         return index-1;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int[] sort(int[] a){
         quickSort(a,0,a.length-1);
 
