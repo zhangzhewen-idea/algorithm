@@ -1,5 +1,7 @@
 package org.zhangzhewen.algorithm.tree;
 
+import java.util.Stack;
+
 /**
  * 描述
  *
@@ -19,7 +21,24 @@ public class DFS {
         }
     }
 
+    private static void dfs2(TreeNode r){
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(r);
+        while(stack.size()>0){
+            TreeNode cur = stack.pop();
+            System.out.println(cur.val);
+            if(cur.children!=null){
+                for (int i = cur.children.size()-1; i >= 0; i--) {
+                    stack.push(cur.children.get(i));
+                }
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
-        dfs(TreeNode.buildTrees());
+        dfs2(TreeNode.buildTrees());
+
+
     }
 }

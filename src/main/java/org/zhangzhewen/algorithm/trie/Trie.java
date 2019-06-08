@@ -1,4 +1,4 @@
-package org.zhangzhewen.algorithm;
+package org.zhangzhewen.algorithm.trie;
 
 /**
  * 描述
