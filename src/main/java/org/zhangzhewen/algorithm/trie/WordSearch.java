@@ -14,6 +14,13 @@ import java.util.Set;
 public class WordSearch {
     Set<String> res = new HashSet<>();
 
+    public static void main(String[] args) {
+        char[][] board = new char[][]{{'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}};
+        String[] words = {"oath", "pea", "eat", "rain"};
+        List<String> res = new WordSearch().findWords(board,words);
+        System.out.println(res);
+    }
+
     public List<String> findWords(char[][] board,String[] words){
         Trie trie = new Trie();
         for (String word : words){
