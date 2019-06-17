@@ -4,13 +4,31 @@ import java.util.*;
 
 public class RadixSort extends Sortable {
 
-    private static void radixSort(int[] array,int d)
+    private static int getDigit (int[] array){
+        //Getting Max Int at first.
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if(max<array[i]){
+                max = array[i];
+            }
+        }
+        //Calculating digit by Max Int.
+        int digit=1;
+        for (int i = max; i!=0; i/=10) {
+            digit*=10;
+        }
+        return digit;
+    }
+
+    private static void radixSort(int[] array)
     {
+        int d = getDigit(array);
+
         int n=1;//代表位数对应的数：1,10,100...
         int k=0;//保存每一位排序后的结果用于下一位的排序输入
         int length=array.length;
         int[][] bucket=new int[10][length];//排序桶用于保存每次排序后的结果，这一位上排序结果相同的数字放在同一个桶里
-        int[] order=new int[length];//用于保存每个桶里有多少个数字
+        int[] order=new int[10];//用于保存每个桶里有多少个数字
         while(n<d)
         {
             for(int num:array) //将数组array里的每个数字放在相应的桶里
@@ -38,8 +56,8 @@ public class RadixSort extends Sortable {
     }
     public static void main(String[] args)
     {
-        int[] A=new int[]{73,22, 93, 43, 55, 14, 28, 65, 39, 81};
-        radixSort(A, 100);
+        int[] A=new int[]{1733,22, 93, 643, 55, 14, 28, 65, 39, 81};
+        radixSort(A);
         for(int num:A)
         {
             System.out.println(num);
