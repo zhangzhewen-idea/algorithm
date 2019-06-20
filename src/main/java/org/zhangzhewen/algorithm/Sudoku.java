@@ -107,4 +107,50 @@ public class Sudoku {
 
         return true;
     }
+
+    public static boolean isValidSudoku2(){
+        char[][] board = new char[][]{
+                {'5','3','.','.','7','.','.','.','.'},
+                {'6','.','.','1','9','5','.','.','.'},
+                {'.','9','8','.','.','.','.','6','.'},
+                {'8','.','.','.','6','.','.','.','3'},
+                {'4','.','.','8','.','3','.','.','1'},
+                {'7','.','.','.','2','.','.','.','6'},
+                {'.','6','.','.','.','.','2','8','.'},
+                {'.','.','.','4','1','9','.','.','5'},
+                {'.','.','.','.','8','.','.','7','9'}};
+        return isValidSudoku3(board);
+    }
+
+
+    public static boolean isValidSudoku3(char[][] board) {
+        int length = board.length;
+        if(length == 0){
+            return true;
+        }
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                char cur = board[row][col];
+                if(cur!='.'){
+                    board[row][col] = '.';
+                    boolean res = c(board,row,col,cur);
+                    if(!res){
+                        return false;
+                    }
+                    board[row][col] = cur;
+                }
+            }
+        }
+        return true;
+    }
+
+    static boolean c(char[][] board,int row,int col,char cur){
+        for (int i = 0; i < board.length; i++) {
+            if(board[row][i]==cur || board[i][col]==cur ||
+                    board[(row/3)*3+i/3][(col/3)*3+(i%3)] == cur){
+                return false;
+            }
+        }
+        return true;
+    }
 }
