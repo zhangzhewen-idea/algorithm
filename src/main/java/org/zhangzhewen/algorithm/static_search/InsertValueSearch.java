@@ -13,9 +13,9 @@ public class InsertValueSearch extends Base {
         return search(a,n,0,a.length-1);
     }
 
-    int search(int[] a,int key,int left,int right){
+    int search(int[] a,double key,int left,int right){
         while(left<right){
-            int middle = left + (right - left)*((key-a[left])/(a[right]-a[left]));
+            int middle = (int)(left + (right - left)*((key-a[left])/(a[right]-a[left])));
             if(a[middle]==key){
                 return middle;
             }else if(key<a[middle]){
