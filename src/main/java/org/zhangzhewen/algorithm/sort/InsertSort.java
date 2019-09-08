@@ -5,9 +5,9 @@ public class InsertSort extends Sortable {
 
     public int[] sort2(int[] a) {
         int length = a.length;
-        for (int i = 1; i < length; i++) {
-            int tmp = a[i];
-            int j = i;
+        for (int i = 1,j,tmp; i < length; i++) {
+            tmp = a[i];
+            j = i;
             while (j > 0 && tmp < a[j - 1]) {
                 a[j] = a[j - 1];
                 j--;
@@ -22,7 +22,7 @@ public class InsertSort extends Sortable {
 
     public int[] sort(int[] a) {
 
-        return a;
+        return sort2(a);
 
 
     }
