@@ -40,34 +40,38 @@ public class MergeSort extends Sortable{
     @Override
     int[] sort(int[] a) {
 
-        if(a.length<2){
-            return a;
-        }
-
-        int mid = a.length/2;
-        int[] l = Arrays.copyOfRange(a,0,mid);
-        int[] r = Arrays.copyOfRange(a,mid,a.length);
-        return merge(sort(l),sort(r));
+        s(a,0,a.length-1);
+        return a;
     }
 
-    int[] merge(int[] l,int[] r){
-        int[] res = new int[l.length+r.length];
-        int li = 0,ri=0,index = 0;
-        while(li<l.length&&ri<r.length&&index<res.length){
-            if(l[li]<r[ri]){
-                res[index++]=l[li++];
+    void s(int[] a,int lo,int hi){
+        if(lo>=hi){
+            return;
+        }
+        int mid= lo+(hi-lo)/2;
+        s(a,lo,mid);
+        s(a,mid+1,hi);
+        merge(a,lo,mid,hi);
+    }
+
+    void merge(int[] nums,int lo,int mid,int hi){
+        int[] copy = nums.clone();
+        int k = lo,i = lo,j = mid+1;
+        while(k<=hi){
+            if(i>mid){
+                nums[k++]=copy[j++];
+            }else if(j > hi){
+                nums[k++] = copy[i++];
+
+            }else if(copy[j]<copy[i]){
+                nums[k++]=copy[j++];
             }else{
-                res[index++]=r[ri++];
+                nums[k++] = copy[i++];
             }
         }
-        while(li<l.length){
-            res[index++]=l[li++];
-        }
-        while(ri<r.length){
-            res[index++]=r[ri++];
-        }
 
-        return res;
+
+
     }
 
 
