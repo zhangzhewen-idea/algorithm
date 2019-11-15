@@ -3,7 +3,7 @@ package org.zhangzhewen.algorithm.sort;
 public abstract class Sortable {
     abstract int[] sort(int[] a);
     protected void print(){
-        for(int e : sort(new int[]{3 ,5,7, 4, 2})){
+        for(int e : sort(new int[]{301,3 ,5,7, 4, 2,23})){
             System.out.print(e+" ");
         }
     }
