@@ -2,8 +2,7 @@ package org.zhangzhewen.algorithm.sort;
 
 public class HeapSort extends Sortable{
 
-    @Override
-    public int[] sort(int[] a) {
+    public int[] sort2(int[] a) {
         int len = a.length;
         buildMaxHeap(a,len);
         for(int i=len-1;i>0;i--){
@@ -35,6 +34,25 @@ public class HeapSort extends Sortable{
             heapify(a,largest,len);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int[] sort(int[] a){
+
+
+        return a;
+    }
+
 
 
 

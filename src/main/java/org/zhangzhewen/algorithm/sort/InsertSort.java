@@ -20,10 +20,24 @@ public class InsertSort extends Sortable {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int[] sort(int[] a) {
 
-        return sort2(a);
 
+return a;
 
     }
 
