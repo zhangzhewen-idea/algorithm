@@ -2,8 +2,7 @@ package org.zhangzhewen.algorithm.sort;
 
 public class ShellSort extends Sortable{
 
-    @Override
-    public int[] sort(int[] a) {
+    public int[] sort2(int[] a) {
         int length = a.length;
         int gap = 1;
         while(gap < length){
@@ -23,6 +22,29 @@ public class ShellSort extends Sortable{
         }
         return a;
     }
+
+
+    @Override
+    public int[] sort(int[] a){
+
+
+        return a;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
