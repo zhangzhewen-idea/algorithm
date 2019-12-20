@@ -4,12 +4,12 @@ import java.util.*;
 
 public class BucketSort extends Sortable {
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         // 输入元素均在 [0, 10) 这个区间内
         float[] arr = new float[] { 0.12f, 2.2f, 8.8f, 7.6f, 7.2f, 6.3f, 9.0f, 1.6f, 5.6f, 2.4f };
         bucketSort(arr);
         printArray(arr);
-    }
+    }*/
 
     public static void bucketSort(float[] arr) {
         // 新建一个桶的集合
@@ -75,7 +75,8 @@ public class BucketSort extends Sortable {
 
 
 
-        return null;
+
+        return a;
     }
 
 
@@ -111,9 +112,9 @@ public class BucketSort extends Sortable {
 
 
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         new BucketSort().print();
-    }*/
+    }
 
 
 }
