@@ -56,18 +56,22 @@ public class RadixSort extends Sortable {
     }
     public static void main(String[] args)
     {
-        int[] A=new int[]{1733,22, 93, 643, 55, 14, 28, 65, 39, 81};
+        /*int[] A=new int[]{1733,22, 93, 643, 55, 14, 28, 65, 39, 81};
         radixSort(A);
         for(int num:A)
         {
             System.out.println(num);
-        }
+        }*/
+
+
+        new RadixSort().print();
     }
 
 
 
-    @Override
     public int[] sort(int[] a) {
+
+
         return a;
     }
 
