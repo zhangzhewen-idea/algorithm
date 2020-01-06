@@ -7,9 +7,6 @@ package org.zhangzhewen.algorithm;
  * @date 2019/6/2
  */
 public class Fibonacci {
-    public static void main(String[] args) {
-        System.out.println(fib2(5));
-    }
     //2的N次方 递归
     public static int fib(int n){
         if(n==0||n==1){
@@ -42,5 +39,38 @@ public class Fibonacci {
             arr[i] = arr[i-1]+arr[i-2];
         }
         return arr[n];
+    }
+
+    static int fib3(int n){
+
+        return 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static void main(String[] args) {
+        System.out.println(fib3(5));
     }
 }
