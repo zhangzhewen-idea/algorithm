@@ -29,20 +29,16 @@ public class Fibonacci {
     //动态规划=递归+记忆化
     //动态转移方程= f[n]=f[n-1]+f[n-2]
     public static int fib2(int n){
-        if(n==1||n==2){
-            return 1;
-        }
         int [] arr = new int[n+1];
-        arr[0]=0;
         arr[1]=1;
-        for (int i = 2; i <= n; i++) {
+        arr[2]=1;
+        for (int i = 3; i <= n; i++) {
             arr[i] = arr[i-1]+arr[i-2];
         }
         return arr[n];
     }
 
-    static int fib3(int n){
-
+    static int fib3(int n){//,int[] memo
 
         return 0;
     }
@@ -77,6 +73,6 @@ public class Fibonacci {
 
 
     public static void main(String[] args) {
-        System.out.println(fib3(6));
+        System.out.println(fib3(8));//,new int[9]
     }
 }
