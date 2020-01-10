@@ -40,13 +40,14 @@ public class Fibonacci {
 
     static int fib3(int n){//,int[] memo
 
+
         return 0;
     }
 
 
 
 
-
+//斐波那契数列：1、1、2、3、5、8、13、21、34
 
 
 
