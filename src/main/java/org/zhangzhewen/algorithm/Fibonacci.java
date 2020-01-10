@@ -9,16 +9,16 @@ package org.zhangzhewen.algorithm;
 public class Fibonacci {
     //2的N次方 递归
     public static int fib(int n){
-        if(n==0||n==1){
-            return n;
+        if(n==1||n==2){
+            return 1;
         }
         return fib(n-1)+fib(n-2);
     }
 
     //记忆化
     public static int fib(int n,int[] memo) {
-        if(n==0||n==1){
-            return n;
+        if(n==1||n==2){
+            return 1;
         }
         else if(memo[n]==0){
             memo[n] = fib(n-1)+fib(n-2);
@@ -29,8 +29,8 @@ public class Fibonacci {
     //动态规划=递归+记忆化
     //动态转移方程= f[n]=f[n-1]+f[n-2]
     public static int fib2(int n){
-        if(n==0||n==1){
-            return n;
+        if(n==1||n==2){
+            return 1;
         }
         int [] arr = new int[n+1];
         arr[0]=0;
@@ -42,6 +42,7 @@ public class Fibonacci {
     }
 
     static int fib3(int n){
+
 
         return 0;
     }
@@ -70,7 +71,12 @@ public class Fibonacci {
 
 
 
+
+
+
+
+
     public static void main(String[] args) {
-        System.out.println(fib3(5));
+        System.out.println(fib3(6));
     }
 }
