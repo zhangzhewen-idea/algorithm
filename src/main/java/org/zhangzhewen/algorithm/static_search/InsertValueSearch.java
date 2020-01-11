@@ -8,12 +8,11 @@ package org.zhangzhewen.algorithm.static_search;
  */
 public class InsertValueSearch extends Base {
 
-    @Override
-    protected int search(int[] a, int n) {
+    protected int search2(int[] a, int n) {
         return search(a,n,0,a.length-1);
     }
 
-    int search(int[] a,double key,int left,int right){
+    int search2(int[] a,double key,int left,int right){
         while(left<right){
             int middle = (int)(left + (right - left)*((key-a[left])/(a[right]-a[left])));
             if(a[middle]==key){
@@ -26,6 +25,31 @@ public class InsertValueSearch extends Base {
         }
         return -1;
     }
+
+    protected int search(int[] a, int n) {
+        return search(a,n,0,a.length-1);
+    }
+
+    int search(int[] a,double key,int left,int right){
+
+        return -1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static void main(String[] args) {
         new InsertValueSearch().run();
