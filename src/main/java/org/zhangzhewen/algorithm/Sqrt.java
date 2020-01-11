@@ -7,6 +7,33 @@ package org.zhangzhewen.algorithm;
  * @date 2019/5/29
  */
 public class Sqrt {
+    public static void main(String[] args) {
+        System.out.println(new Sqrt().mySqrt (4));
+    }
+
+    public int mySqrt2(int x) {
+
+        return 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int mySqrt(int x) {
         if(x==0 || x==1){
             return x;
