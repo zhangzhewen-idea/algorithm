@@ -8,8 +8,7 @@ package org.zhangzhewen.algorithm.static_search;
  */
 public class BinarySearch extends Base{
 
-    @Override
-    protected int search(int[] nums,int target) {
+    protected int search2(int[] nums,int target) {
         int low = 0;
         int high = nums.length - 1;
         while (low <= high) {
@@ -24,6 +23,35 @@ public class BinarySearch extends Base{
         }
         return -1;
     }
+
+
+
+    protected int search(int[] nums,int target) {
+
+        return -1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static void main(String[] args) {
         new BinarySearch().run();
