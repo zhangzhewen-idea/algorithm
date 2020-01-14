@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class NQueens {
     public static void main(String[] args) {
-        solveNQueens(4);
-        totalNQueens(4);
+        solveNQueens2(4);
+        totalNQueens2(4);
         isValidQueen();
     }
 
@@ -46,6 +46,50 @@ public class NQueens {
         board = board3;
         System.out.println(isValidQueenRecursion(board,0,new boolean[board[0].length],new boolean[board[0].length+board.length],new boolean[board[0].length+board.length]));
     }
+
+    public static List<List<String>> solveNQueens2(int n){
+
+        return null;
+    }
+
+    public static int totalNQueens2(int n) {
+
+        return 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     static boolean isValidQueenRecursion(char[][] board, int row, boolean[] attackCol, boolean[] attackPie, boolean[] attackNa){
         if(row==board.length){
