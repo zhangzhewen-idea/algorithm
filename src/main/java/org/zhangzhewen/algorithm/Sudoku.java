@@ -14,6 +14,35 @@ public class Sudoku {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void solveSudoku(char[][] board) {
         if (board == null || board.length == 0) {
             return;
