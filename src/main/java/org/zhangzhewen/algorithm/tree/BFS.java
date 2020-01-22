@@ -11,6 +11,10 @@ import java.util.Queue;
  */
 public class BFS {
     public static void main(String[] args) {
+        bfs();
+    }
+
+    public static void bfs2() {
         TreeNode root = TreeNode.buildTrees();
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
@@ -24,4 +28,53 @@ public class BFS {
             }
         }
     }
+
+    public static void bfs() {
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
