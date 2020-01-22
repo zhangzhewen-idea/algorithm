@@ -36,8 +36,32 @@ public class DFS {
 
     }
 
+
+    private static void dfs3(TreeNode r){
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void main(String[] args) {
-        dfs2(TreeNode.buildTrees());
+        dfs3(TreeNode.buildTrees());
 
 
     }
