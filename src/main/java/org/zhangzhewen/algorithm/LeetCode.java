@@ -10,7 +10,15 @@ import java.util.*;
  */
 public class LeetCode {
 
+    public class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode(int x) { val = x; }
+  }
+
     public static void main(String[] args) {
+
 
 
 
@@ -34,6 +42,8 @@ public class LeetCode {
 
 
     }
+
+
 
     public static List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
