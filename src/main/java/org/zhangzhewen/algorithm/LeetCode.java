@@ -13,6 +13,7 @@ public class LeetCode {
     public static void main(String[] args) {
         twoSum(new int[]{3,2,4},7);
 
+        isValid("()");
 //        int[] result = maxSlidingWindow2(new int[]{1,10,2,-1,3},2);
 //        //期望的是 10 10 2 3
 //        for(int i = 0;i<result.length;i++){
@@ -30,25 +31,48 @@ public class LeetCode {
 
     }
 
-
-    public static Map<Integer,Integer> twoSum(int[] a,int target){
-        Map<Integer,Integer> result = new HashMap<>();
-        Map<Integer,Integer> valueAndIndex = new HashMap<>();
-        for(int i = 0 ; i < a.length;i++){
-            valueAndIndex.put(a[i],i);
-        }
-        for(int i = 0 ; i < a.length;i++){
-            Integer anotherIndex = valueAndIndex.get(target-a[i]);
-            if(anotherIndex!=null&&anotherIndex.intValue()!=i){
-                result.put(i,anotherIndex);
+    public static boolean isValid(String s) {
+        Map<Character,Character> bracketsMap = new HashMap(){{
+            put(')','(');
+            put(']','[');
+            put('}','{');
+        }};
+        Stack<Character> stack = new Stack();
+        Character aux;
+        for(char bracket : s.toCharArray()){
+            aux = bracketsMap.get(bracket);
+            if(aux==null){
+                stack.push(bracket);
+            }else if(!stack.isEmpty()){
+                if(stack.peek().equals(aux)){
+                    stack.pop();
+                    continue;
+                }else{
+                    return false;
+                }
+            }else {
+                return false;
             }
         }
-        if(!result.isEmpty()){
-            result.entrySet().forEach(o->{
-                System.out.println(o.getKey()+" "+o.getValue());
-            });
+
+        if(stack.isEmpty()){
+            return true;
+        }else {
+            return false;
         }
-        return result;
+    }
+
+
+    public static int[] twoSum(int[] nums,int target){
+        Map<Integer,Integer> valueAndIndexMap = new HashMap();
+        for(int i = 0 ; i < nums.length;i ++){
+            Integer resultIndex = valueAndIndexMap.get(target - nums[i]);
+            if(resultIndex!=null){
+                return new int[]{resultIndex,i};
+            }
+            valueAndIndexMap.put(nums[i],i);
+        }
+        return null;
     }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {

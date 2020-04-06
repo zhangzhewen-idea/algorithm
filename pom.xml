@@ -62,6 +62,11 @@
             <version>3.3.0.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.webjars.bowergithub.huaban</groupId>
+            <artifactId>jieba-analysis</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 

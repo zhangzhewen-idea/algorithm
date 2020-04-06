@@ -8,9 +8,9 @@ package org.zhangzhewen.algorithm.tree;
  */
 public class BinaryTreeNode {
 
-    int val;
-    BinaryTreeNode left;
-    BinaryTreeNode right;
+    public int val;
+    public BinaryTreeNode left;
+    public BinaryTreeNode right;
 
     BinaryTreeNode(int x) {
         val = x;
@@ -39,4 +39,21 @@ public class BinaryTreeNode {
 
         return a1;
     }
+
+    public static BinaryTreeNode buildTrees2(){
+        BinaryTreeNode a5 = new BinaryTreeNode(5);
+        BinaryTreeNode a1 = new BinaryTreeNode(1);
+        BinaryTreeNode a4 = new BinaryTreeNode(4);
+        BinaryTreeNode a3 = new BinaryTreeNode(3);
+        BinaryTreeNode a6 = new BinaryTreeNode(6);
+
+        a5.left = a1;
+        a5.right = a4;
+
+        a4.left = a3;
+        a4.right = a6;
+
+        return a1;
+    }
+
 }
