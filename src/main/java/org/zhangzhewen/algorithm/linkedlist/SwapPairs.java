@@ -24,25 +24,8 @@ public class SwapPairs {
     }
 
     public static ListNode swapPairs2(ListNode head){
-        if(head==null|| head.next==null){
-            return head;
-        }
 
-        ListNode result = head.next;
-        ListNode prev = null;
-        ListNode cur = head;
-        while(cur!=null&&cur.next!=null){
-            ListNode a = cur.next;
-            ListNode b = cur;
-            if(prev!=null){
-                prev.next = a;
-            }
-            b.next = a.next;
-            a.next = b;
-            prev = b;
-            cur = b.next;
-        }
-        return result;
+        return null;
     }
 
 
