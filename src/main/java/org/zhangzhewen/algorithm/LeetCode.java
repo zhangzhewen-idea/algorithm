@@ -11,9 +11,13 @@ import java.util.*;
 public class LeetCode {
 
     public static void main(String[] args) {
-        twoSum(new int[]{3,2,4},7);
 
-        isValid("()");
+
+
+//        generateParenthesis(3);
+//        twoSum(new int[]{3,2,4},7);
+
+//        isValid("()");
 //        int[] result = maxSlidingWindow2(new int[]{1,10,2,-1,3},2);
 //        //期望的是 10 10 2 3
 //        for(int i = 0;i<result.length;i++){
@@ -29,6 +33,27 @@ public class LeetCode {
 //        System.out.println(josephusProblem(v));
 
 
+    }
+
+    public static List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<>();
+        generateParenthesis(n,0,0,"",result);
+        return result;
+    }
+
+    public static void generateParenthesis(final int n,int left,int right,String str,List<String> result){
+        if(left==n&&right==n){
+            result.add(str);
+            return;
+        }
+
+        if(left<n){
+            generateParenthesis(n,left+1,right,str+"(",result);
+        }
+
+        if(right<left){
+            generateParenthesis(n,left,right+1,str+")",result);
+        }
     }
 
     public static boolean isValid(String s) {
