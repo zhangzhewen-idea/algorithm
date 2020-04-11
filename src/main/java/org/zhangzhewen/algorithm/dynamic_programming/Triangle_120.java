@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Triangle_120 {
     public static void main(String[] args) {
-        minimumTotal(new ArrayList<List<Integer>>() {{
+      int result =   minimumTotal2(new ArrayList<List<Integer>>() {{
             add(new ArrayList<Integer>() {{
                 add(2);
             }});
@@ -32,12 +32,24 @@ public class Triangle_120 {
                 add(3);
             }});
         }});
+
+        System.out.println(result);
 //[
 //    [2],
 //   [3,4],
 //  [6,5,7],
 // [4,1,8,3]
 // ]
+    }
+    public static int minimumTotal2(List<List<Integer>> triangle) {
+        return recursion(triangle,0,0);
+    }
+
+    public static int recursion(List<List<Integer>> triangle,int row,int col){
+        if(triangle.size()-1==row){
+            return triangle.get(row).get(col);
+        }
+        return triangle.get(row).get(col) + Math.min(recursion(triangle,row+1,col),recursion(triangle,row+1,col+1));
     }
 
     public static int minimumTotal(List<List<Integer>> triangle) {
