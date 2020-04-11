@@ -16,10 +16,41 @@ public class LeetCode {
       TreeNode right;
       TreeNode(int x) { val = x; }
   }
+public static int r(int n){
+        if(n==1){
+            return 1;
+        }
+        return r(n-1)*n;
+}
+
+    class KthLargest {
+
+        private PriorityQueue<Integer> priorityQueue;
+        private int k;
+        public KthLargest(int k, int[] nums) {
+            this.k = k;
+            priorityQueue= new PriorityQueue<>(k);
+            for(int n : nums){
+                add(n);
+            }
+        }
+
+        public int add(int val) {
+            if(priorityQueue.size()>=k){
+                priorityQueue.poll();
+            }
+            priorityQueue.add(val);
+            return priorityQueue.peek();
+        }
+    }
 
     public static void main(String[] args) {
 
-
+        int n=1;
+        for (int i = 5; i > 1 ; i--) {
+            n *= i;
+        }
+        System.out.println(n);
 
 
 //        generateParenthesis(3);
