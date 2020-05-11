@@ -15,8 +15,8 @@ public class Stock {
         // 1.定义状态
         // 2.定义状态转移方程
 
-//        System.out.println(new Stock().maxProfit(2,new int[]{7, 1, 5, 3, 6, 4}));
-        System.out.println(new Stock().maxProfit(2,new int[]{2,4,1}));
+        System.out.println(new Stock().maxProfit(2,new int[]{7, 1, 5, 3, 6, 4,5}));
+//        System.out.println(new Stock().maxProfit(2,new int[]{2,4,1}));
 //        System.out.println(new Stock().maxProfit2(new int[]{1,2,3,4,5}));
     }
 
