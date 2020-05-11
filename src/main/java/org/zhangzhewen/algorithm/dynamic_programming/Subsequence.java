@@ -24,17 +24,17 @@ public class Subsequence {
         // 2.定义状态转移方程
         int maxCount = 0;
         for (int i = 0; i < nums.length; i++) {
-            // 找到 最靠近nums[i] 的数的子序列个数
-            int approachNumIndex = i;
-            int approachNum = 0;
+            // 找到 小于nums[i] 并且 子序列个数最大的 下标
+            int maxIndex = i;
+            int maxNum = 0;
             for (int j = i - 1; j >= 0; j--) {
-                if(nums[i] > nums[j] && approachNum <= dp[j]){
-                    approachNum = dp[j];
-                    approachNumIndex = j;
+                if(nums[i] > nums[j] && maxNum <= dp[j]){
+                    maxNum = dp[j];
+                    maxIndex = j;
                 }
             }
-            if (approachNumIndex != i) {
-                dp[i] = dp[approachNumIndex] + 1;
+            if (maxIndex != i) {
+                dp[i] = dp[maxIndex] + 1;
                 if (maxCount < dp[i]) {
                     maxCount = dp[i];
                 }
