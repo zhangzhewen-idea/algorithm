@@ -1,4 +1,4 @@
-package org.zhangzhewen.algorithm.union;
+package org.zhangzhewen.algorithm.union_find;
 
 /**
  * QuickUnionUF
@@ -61,7 +61,7 @@ public class QuickUnionUF {
 //    public boolean connected(int p, int q) {
 //    }
 //
-//    public void union(int p, int q) {
+//    public void union_find(int p, int q) {
 //    }
 
 
