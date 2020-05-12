@@ -49,4 +49,26 @@ public class QuickUnionUF {
         int proot = findRoot(p);
         roots[proot] = qroot;
     }
+
+
+
+//    public QuickUnionUF(int n) {
+//    }
+//
+//    private int findRoot(int i) {
+//    }
+//
+//    public boolean connected(int p, int q) {
+//    }
+//
+//    public void union(int p, int q) {
+//    }
+
+
+
+
+
+
+
+
 }
