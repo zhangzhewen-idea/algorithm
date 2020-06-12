@@ -21,62 +21,27 @@ public class MergeSort extends Sortable {
 
         int[] result = new int[left.length + right.length];
         int i = 0, l = 0, r = 0;
-        while (i < result.length && l < left.length && r < right.length) {
-            if (left[l] > right[r]) {
+        while (i < result.length) {
+            if (l == left.length) {
+                result[i++] = right[r++];
+            } else if (r == right.length) {
+                result[i++] = left[l++];
+            } else if (left[l] > right[r]) {
                 result[i++] = right[r++];
             } else {
                 result[i++] = left[l++];
             }
         }
-        while (l < left.length) {
-            result[i++] = left[l++];
-        }
-        while (r < right.length) {
-            result[i++] = right[r++];
-        }
+
         return result;
     }
-
-
-
-
 
     @Override
     int[] sort(int[] a) {
 
 
-        
-
-
-
         return null;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public static void main(String[] args) {
