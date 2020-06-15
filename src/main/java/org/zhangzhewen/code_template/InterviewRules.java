@@ -17,3 +17,29 @@ public class InterviewRules {
     5. 沟通和交流很重要(把面试官当成未来的同事，进入Teamworking的状态)
      */
 }
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ */
