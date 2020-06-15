@@ -30,7 +30,7 @@ public class BFS {
     }
 
     public static void bfs() {
-
+        TreeNode root = TreeNode.buildTrees();
     }
 
 
