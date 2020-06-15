@@ -10,9 +10,6 @@ import java.util.Queue;
  * @date 2019/5/20
  */
 public class BFS {
-    public static void main(String[] args) {
-        bfs();
-    }
 
     public static void bfs2() {
         TreeNode root = TreeNode.buildTrees();
@@ -34,6 +31,9 @@ public class BFS {
     }
 
 
+    public static void main(String[] args) {
+        bfs();
+    }
 
 
 
