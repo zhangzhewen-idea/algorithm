@@ -1,7 +1,5 @@
 package org.zhangzhewen.algorithm.dynamic_programming;
 
-import org.zhangzhewen.algorithm.Utils;
-
 /**
  * EditDistance
  * todo 需要熟练掌握，很经典地用dp处理字符串匹配问题。需要经常练习，特别是面试前。
@@ -50,6 +48,7 @@ public class EditDistance {
                         // 对应删
                         dp[i][j - 1] + 1
                 );
+                System.out.println(dp[i][j]);
             }
         }
         return dp[word1Length][word2Length];
@@ -66,3 +65,16 @@ public class EditDistance {
     }
 }
 
+/*
+debug专用：
+dp[i - 1][j - 1] + ((word1.charAt(i - 1) == word2.charAt(((word1.charAt(i - 1) == word2.charAt(j - 1) ? 0 : 1)) // 监查替换操作
+((word1.charAt(i - 1) == word2.charAt(j - 1) ? 0 : 1)) // 监查替换操作的比较字符串比较
+dp[i - 1][j - 1]
+dp[i - 1][j] + 1
+dp[i][j - 1] + 1
+dp[i][j]
+word1.charAt(i - 1)
+word2.charAt(j - 1)
+
+
+ */
