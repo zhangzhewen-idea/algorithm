@@ -2,7 +2,7 @@ package org.zhangzhewen.algorithm.dynamic_programming;
 
 /**
  * EditDistance
- * todo 需要熟练掌握，很经典地用dp处理字符串匹配问题。
+ * todo 需要熟练掌握，很经典地用dp处理字符串匹配问题。需要经常练习，特别是面试前。
  * https://time.geekbang.org/course/detail/130-69785
  * https://leetcode-cn.com/problems/edit-distance/submissions/
  * @author zhangzhewen
