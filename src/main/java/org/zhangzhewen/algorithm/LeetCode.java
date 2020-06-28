@@ -36,10 +36,12 @@ public static int r(int n){
         }
 
         public int add(int val) {
-            if(priorityQueue.size()>=k){
+            if(priorityQueue.size()<k){
+                priorityQueue.offer(val);
+            }else if(priorityQueue.peek()<val){
                 priorityQueue.poll();
+                priorityQueue.offer(val);
             }
-            priorityQueue.add(val);
             return priorityQueue.peek();
         }
     }
