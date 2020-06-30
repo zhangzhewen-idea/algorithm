@@ -13,7 +13,8 @@ import java.util.PriorityQueue;
 public class MergeKLists {
 
 
-    public ListNode mergeKLists(ListNode[] lists) {
+    // 利用最小堆 O(nk * log(k))
+    public ListNode mergeKLists2(ListNode[] lists) {
         if (lists == null || lists.length == 0) {
             return null;
         }
@@ -50,6 +51,55 @@ public class MergeKLists {
         }
         // 最后返回结果链表
         return fakeHead.next;
+    }
+
+    // 利用归并 O(nk * log(k)) 不像最小堆解法一样需要维护一个额外的数据结构，空间复杂度是O(1)
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) {
+            return null;
+        }
+
+        return mergeKLists(lists, 0, lists.length - 1);
+
+    }
+
+    /**
+     * 主函数类似之前的归并排序
+     * 从中间切一刀
+     * 然后递归地处理左边和右边的列表，最后合并起来
+     *
+     * @param lists
+     * @param low
+     * @param high
+     * @return
+     */
+    public ListNode mergeKLists(ListNode[] lists, int low, int high) {
+        if (low == high) {
+            return lists[low];
+        }
+
+        int middle = low + (high - low) / 2;
+        return mergeTwoLists(
+                mergeKLists(lists, low, middle),
+                mergeKLists(lists, middle + 1, high)
+        );
+    }
+
+    public ListNode mergeTwoLists(ListNode a, ListNode b) {
+        if (a == null) {
+            return b;
+        }
+        if (b == null) {
+            return a;
+        }
+
+        if (a.val <= b.val) {
+            a.next = mergeTwoLists(a.next, b);
+            return a;
+        }
+
+        b.next = mergeTwoLists(a, b.next);
+        return b;
     }
 
     class ListNode {
