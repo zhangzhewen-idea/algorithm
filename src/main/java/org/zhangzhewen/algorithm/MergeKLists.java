@@ -5,11 +5,13 @@ import java.util.PriorityQueue;
 
 /**
  * MergeKLists
+ * 有三种解决方案：1.暴力 2.利用最小堆 3.利用归并
  *
  * @author zhangzhewen
  * @date 2020/6/30
  */
 public class MergeKLists {
+
 
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) {
