@@ -85,21 +85,55 @@ public class MergeKLists {
         );
     }
 
-    public ListNode mergeTwoLists(ListNode a, ListNode b) {
-        if (a == null) {
+    // resursion方式
+//    public ListNode mergeTwoLists(ListNode a, ListNode b) {
+//        if (a == null) {
+//            return b;
+//        }
+//        if (b == null) {
+//            return a;
+//        }
+//
+//        if (a.val <= b.val) {
+//            a.next = mergeTwoLists(a.next, b);
+//            return a;
+//        }
+//
+//        b.next = mergeTwoLists(a, b.next);
+//        return b;
+//    }
+
+    // while方式
+    ListNode mergeTwoLists(ListNode a, ListNode b) {
+        if (a == null){
             return b;
         }
-        if (b == null) {
+        if (b == null){
             return a;
         }
 
-        if (a.val <= b.val) {
-            a.next = mergeTwoLists(a.next, b);
-            return a;
+        ListNode head = new ListNode(0), p = head;
+        while (true) {
+            if (a == null) {
+                p.next = b;
+                break;
+            }
+            if (b == null) {
+                p.next = a;
+                break;
+            }
+            if (a.val < b.val) {
+                p.next = a;
+                p = p.next;
+                a = a.next;
+            } else {
+                p.next = b;
+                p = p.next;
+                b = b.next;
+            }
         }
 
-        b.next = mergeTwoLists(a, b.next);
-        return b;
+        return head.next;
     }
 
     class ListNode {
