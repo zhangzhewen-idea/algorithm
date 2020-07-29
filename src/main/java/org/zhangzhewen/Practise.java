@@ -1,7 +1,10 @@
 package org.zhangzhewen;
 
 
+import org.zhangzhewen.algorithm.MergeKLists;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -51,6 +54,7 @@ public class Practise {
             add(3);
         }});
 
+
 //        System.out.println(maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
 
 
@@ -69,14 +73,34 @@ public class Practise {
 
 //        System.out.println(fib(7));
 
-        PriorityQueue<Integer> pp = new PriorityQueue<Integer>(3);
+        /*PriorityQueue<Integer> pp = new PriorityQueue<Integer>(3);
         pp.add(9);
         pp.add(10);
         pp.add(50);
 
         KthLargest a = new KthLargest(3,new int[]{4,5,8,2});
-        System.out.println();
+        System.out.println();*/
+
+        Practise p1 = new Practise();
+//        p1.lengthOfLongestSubstring("abba");
+
+//        p1.removeElement(new int[]{2, 2, 3}, 2);
+//        p1.findMedianSortedArrays(new int[]{1, 2,6},new int[]{3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19});
+
+
+//        int[] arr = new int[]{5,3,1,2,6,9,8,7,20};
+//        int k = 3;
+//        System.out.println(p1.kuaipaiGetK(arr,4,0,arr.length-1));
+
+
     }
+
+    public int eraseOverlapIntervals(int[][] intervals) {
+
+        return 0;
+    }
+
+
 
     /*
 
@@ -86,18 +110,19 @@ public class Practise {
 
         private PriorityQueue<Integer> priorityQueue;
         private int k;
+
         public KthLargest(int k, int[] nums) {
             this.k = k;
-            priorityQueue= new PriorityQueue<>(k);
-            for(int n : nums){
+            priorityQueue = new PriorityQueue<>(k);
+            for (int n : nums) {
                 add(n);
             }
         }
 
         public int add(int val) {
-            if(priorityQueue.size()<k){
+            if (priorityQueue.size() < k) {
                 priorityQueue.offer(val);
-            }else if(priorityQueue.peek()<val){
+            } else if (priorityQueue.peek() < val) {
                 priorityQueue.poll();
                 priorityQueue.offer(val);
             }
@@ -112,9 +137,6 @@ public class Practise {
  */
 
 
-
-
-
     /**
      * Your Trie object will be instantiated and called as such:
      * Trie obj = new Trie();
@@ -122,7 +144,6 @@ public class Practise {
      * boolean param_2 = obj.search(word);
      * boolean param_3 = obj.startsWith(prefix);
      */
-
 
 
     public static int min(int... a) {

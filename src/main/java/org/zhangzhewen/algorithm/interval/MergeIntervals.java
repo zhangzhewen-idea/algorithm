@@ -1,4 +1,4 @@
-package org.zhangzhewen;
+package org.zhangzhewen.algorithm.interval;
 
 import java.util.ArrayList;
 import java.util.Arrays;
