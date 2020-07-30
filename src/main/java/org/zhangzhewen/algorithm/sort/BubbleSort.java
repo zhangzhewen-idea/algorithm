@@ -1,34 +1,41 @@
 package org.zhangzhewen.algorithm.sort;
 
-public class BubbleSort extends Sortable {
+import static org.zhangzhewen.algorithm.sort.SortUtils.*;
 
-    // 冒泡排序，a 表示数组，n 表示数组大小
-    public int[] sort2(int[] a) {
-        int length = a.length;
-        for (int i = 1; i < length; i++) {
-            boolean noChanged = true;
-            for (int j = 0; j < length - i; j++) {
-                if (a[j] > a[j + 1]) {
-                    int tmp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = tmp;
-                    noChanged = false;
+/**
+ * @author Varun Upadhyay (https://github.com/varunu28)
+ * @author Podshivalov Nikita (https://github.com/nikitap492)
+ * @see SortAlgorithm
+ */
+public class BubbleSort  implements SortAlgorithm {
+
+    /**
+     * This method implements the Generic Bubble Sort
+     *
+     * @param array The array to be sorted
+     *              Sorts the array in ascending order
+     **/
+    @Override
+    public <T extends Comparable<T>> T[] sort(T[] array) {
+        for (int i = 0, size = array.length; i < size - 1; ++i) {
+            boolean swapped = false;
+            for (int j = 0; j < size - 1 - i; ++j) {
+                if (greater(array[j], array[j + 1])) {
+                    swap(array, j, j + 1);
+                    swapped = true;
                 }
             }
-            if (noChanged) {
+            if (!swapped) {
                 break;
             }
         }
-        return a;
+        return array;
     }
 
 
-    public int[] sort(int[] a) {
+    <T extends Comparable<T>> T[] sort2(T[] array){
 
-
-
-
-        return null;
+        return array;
     }
 
 
@@ -62,11 +69,21 @@ public class BubbleSort extends Sortable {
 
 
 
-
-
+    // Driver Program
     public static void main(String[] args) {
-        new BubbleSort().print();
+
+        // Integer Input
+        Integer[] integers = {4, 23, 6, 78, 1, 54, 231, 9, 12};
+        BubbleSort bubbleSort = new BubbleSort();
+        bubbleSort.sort2(integers);
+
+        // Output => 1, 4, 6, 9, 12, 23, 54, 78, 231
+        print(integers);
+
+        // String Input
+        String[] strings = {"c", "a", "e", "b", "d"};
+        //Output => a, b, c, d, e
+        print(bubbleSort.sort2(strings));
+
     }
-
-
 }
