@@ -171,6 +171,7 @@ class CountSort{
         for(int i = 0; i < a.length; ++i){
             c[a[i]-min] += 1;//优化过的地方，减小了数组c的大小
         }
+        //算法的核心思想是，如果待排数组中比一个元素小的有k个，那么这个元素就该放在第k+1个位置上。
         for(int i = 1; i < c.length; ++i){
             c[i] = c[i] + c[i-1];
         }
