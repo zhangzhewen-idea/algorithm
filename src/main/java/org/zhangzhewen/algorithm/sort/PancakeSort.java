@@ -29,7 +29,7 @@ public class PancakeSort implements SortAlgorithm {
     }
 
     <T extends Comparable<T>> void sort2(T[] a){
-        
+
     }
 
 
@@ -60,7 +60,7 @@ public class PancakeSort implements SortAlgorithm {
         Integer[] arr = {10, 9, 8, 7, 6, 15, 14, 7, 4, 3, 8, 6, 3, 1, 2, -2, -5, -8, -3, -1, 13, 12, 11, 5, 4, 3, 2, 1};
         PancakeSort pancakeSort = new PancakeSort();
         System.out.println("After sorting:");
-        pancakeSort.sort(arr);
+        pancakeSort.sort2(arr);
         print(arr);
     }
 
