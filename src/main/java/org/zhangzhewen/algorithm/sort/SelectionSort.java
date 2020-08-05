@@ -1,5 +1,6 @@
 package org.zhangzhewen.algorithm.sort;
 
+import static org.zhangzhewen.algorithm.sort.SortUtils.*;
 /**
  * @author Varun Upadhyay (https://github.com/varunu28)
  * @author Podshivalov Nikita (https://github.com/nikitap492)
@@ -50,9 +51,11 @@ public class SelectionSort implements SortAlgorithm {
     }
 
 
-    public <T extends Comparable<T>> T[] sort2(T[] arr) {
+    public <T extends Comparable<T>> T[] sort2(T[] a) {
 
-        return arr;
+
+
+        return a;
     }
 
 
@@ -86,14 +89,14 @@ public class SelectionSort implements SortAlgorithm {
 
         SelectionSort selectionSort = new SelectionSort();
 
-        Integer[] sorted = selectionSort.sort(arr);
+        Integer[] sorted = selectionSort.sort2(arr);
 
         // Output => 1	  4	 6	9	12	23	54	78	231
         SortUtils.print(sorted);
 
         // String Input
         String[] strings = {"c", "a", "e", "b", "d"};
-        String[] sortedStrings = selectionSort.sort(strings);
+        String[] sortedStrings = selectionSort.sort2(strings);
 
         //Output => a	b	 c  d	e
         SortUtils.print(sortedStrings);
