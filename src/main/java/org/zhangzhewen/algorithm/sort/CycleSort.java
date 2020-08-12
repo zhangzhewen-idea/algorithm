@@ -68,6 +68,13 @@ class CycleSort implements SortAlgorithm {
 
 
 
+    public <T extends Comparable<T>> T[] sort2(T[] a) {
+
+        return a;
+    }
+
+
+
 
 
 
@@ -95,7 +102,7 @@ class CycleSort implements SortAlgorithm {
     public static void main(String[] args) {
         Integer arr[] = {4, 23, 6, 78, 1, 26, 11, 23, 0, -6, 3, 54, 231, 9, 12};
         CycleSort cycleSort = new CycleSort();
-        cycleSort.sort(arr);
+        cycleSort.sort2(arr);
 
         System.out.println("After sort : ");
         print(arr);
