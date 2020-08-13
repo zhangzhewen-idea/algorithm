@@ -123,13 +123,13 @@ public class QuickSort implements SortAlgorithm {
         Integer[] array = {3, 4, 1, 32, 0, 1, 5, 12, 2, 5, 7, 8, 9, 2, 44, 111, 5};
 
         QuickSort quickSort = new QuickSort();
-        quickSort.sort(array);
+        quickSort.sort2(array);
 
         //Output => 0 1 1 2 2 3 4 5 5 5 7 8 9 12 32 44 111
         print(array);
 
         String[] stringArray = {"c", "a", "e", "b", "d"};
-        quickSort.sort(stringArray);
+        quickSort.sort2(stringArray);
 
         //Output => a	b	c	d	e
         print(stringArray);
