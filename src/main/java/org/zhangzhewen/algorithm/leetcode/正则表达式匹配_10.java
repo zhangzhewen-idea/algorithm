@@ -38,7 +38,7 @@ public class 正则表达式匹配_10 {
                 // -用星号组合表示空字符串，看看是否能匹配，即dp[i][j-2]
                 // -用星号组合表示一个字符，看看是否能匹配，即dp[i-1][j]
                 else {
-                    dp[i][j] = dp[i][j - 2] || dp[i - 1][j] && isMatch(s.charAt(i - 1), p.charAt(j - 2));
+                    dp[i][j] = dp[i][j - 2] || (dp[i - 1][j] && isMatch(s.charAt(i - 1), p.charAt(j - 2)));
                 }
             }
         }
