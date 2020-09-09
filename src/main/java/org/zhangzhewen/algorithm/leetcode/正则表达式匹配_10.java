@@ -10,7 +10,7 @@ package org.zhangzhewen.algorithm.leetcode;
 public class 正则表达式匹配_10 {
 
     public static void main(String[] args) {
-        isMatch("aa", "a");
+        isMatch("aaaaaaa", "a*");
     }
 
     // 动态规划 - 自底向上
