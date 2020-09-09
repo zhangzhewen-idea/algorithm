@@ -12,6 +12,45 @@ import java.util.PriorityQueue;
  */
 public class MergeKLists {
 
+    public static void main(String[] args) {
+        ListNode a1 = new ListNode(1);
+        ListNode a2 = new ListNode(4);
+        ListNode a3 = new ListNode(5);
+        a1.next = a2;
+        a2.next = a3;
+
+        ListNode a4 = new ListNode(1);
+        ListNode a5 = new ListNode(3);
+        ListNode a6 = new ListNode(4);
+        a4.next = a5;
+        a5.next = a6;
+
+        ListNode a7 = new ListNode(2);
+        ListNode a8 = new ListNode(6);
+        a7.next = a8;
+
+        ListNode[] a = new ListNode[]{a1, a4, a7};
+
+
+//        [[1,2,3],[4,5,6,7]]
+
+        ListNode a11 = new ListNode(1);
+        ListNode a21 = new ListNode(2);
+        ListNode a31 = new ListNode(3);
+        a11.next = a21;
+        a21.next = a31;
+
+        ListNode a41 = new ListNode(4);
+        ListNode a51 = new ListNode(5);
+        ListNode a61 = new ListNode(6);
+        ListNode a71 = new ListNode(7);
+        a41.next = a51;
+        a51.next = a61;
+        a61.next = a71;
+
+        ListNode[] aa1 = new ListNode[]{a11, a41};
+
+    }
 
     // 利用最小堆 O(nk * log(k))
     public ListNode mergeKLists2(ListNode[] lists) {
@@ -136,7 +175,7 @@ public class MergeKLists {
         return head.next;
     }
 
-    class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 
