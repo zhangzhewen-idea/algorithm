@@ -11,11 +11,36 @@ import java.util.Arrays;
 public class EraseOverlapIntervals {
 
     public static void main(String[] args) {
-        System.out.println(new EraseOverlapIntervals().eraseOverlapIntervals(new int[][]{{1,3},{3,6},{6,9},{1,9},{1,9},{1,2}}));
+        System.out.println(new EraseOverlapIntervals().eraseOverlapIntervals(new int[][]{{1, 3}, {3, 6}, {6, 9}, {1, 9}, {1, 9}, {1, 2}}));
     }
 
+    // 解法二：贪婪法，按照结束时间排序
+    public int eraseOverlapIntervals(int[][] intervals) {
+        if (intervals.length == 0) {
+            return 0;
+        }
 
-    // 解法二：贪婪法
+        // 将所有的区间按照结束时间的先后顺序排序
+        Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[1], i2[1]));
+
+        // 定义一个end变量记录当前的结束时间，一定一个count变量记录有多少个没有重叠的区间
+        int end = intervals[0][1];
+        int count = 1;
+        // 从第二个区间开始遍历剩下的区间
+        for (int i = 1; i < intervals.length; i++) {
+            // 如果发现当前区间与前一个区间结束时间没有重叠，则计数加一，同时更新一下新的结束时间
+            if (intervals[i][0] >= end) {
+                end = intervals[i][1];
+                count++;
+            }
+        }
+
+        // 最后，用总区间的个数减去没有重叠的区间个数，得到最少要删除的区间个数
+        return intervals.length - count;
+    }
+
+/*
+    // 解法二：贪婪法，按照起始时间排序
     public int eraseOverlapIntervals(int[][] intervals) {
         if(intervals.length==0){
             return 0;
@@ -42,7 +67,7 @@ public class EraseOverlapIntervals {
         }
 
         return count;
-    }
+    }*/
 
 
 /*
