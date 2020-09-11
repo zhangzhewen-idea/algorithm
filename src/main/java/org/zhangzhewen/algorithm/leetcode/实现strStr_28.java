@@ -34,8 +34,9 @@ package org.zhangzhewen.algorithm.leetcode;
 public class 实现strStr_28 {
 
     public static void main(String[] args) {
-        System.out.println(strStr("hello", "ll"));
-        System.out.println(strStr("aaaaa", "bba"));
+//        System.out.println(strStr("hello", "ll"));
+//        System.out.println(strStr("abcdefghijk", "fghi"));
+        System.out.println(strStr("abc1abac1abcc", "abc1abc"));
     }
 
 
@@ -68,7 +69,7 @@ public class 实现strStr_28 {
             else if (needleIndex > 0) {
                 needleIndex = lps[needleIndex - 1];
             }
-            // j等于0的情况，表明此时needle的第一个字符已不同于haystack的字符，尝试对比haystack的下一个字符，故haystackIndex++
+            // needleIndex等于0的情况，表明此时needle的第一个字符已不同于haystack的字符，尝试对比haystack的下一个字符，故haystackIndex++
             else {
                 haystackIndex++;
             }
