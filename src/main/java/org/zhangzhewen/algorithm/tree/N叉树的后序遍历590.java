@@ -1,6 +1,7 @@
 package org.zhangzhewen.algorithm.tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -33,23 +34,25 @@ import java.util.Stack;
 public class N叉树的后序遍历590 {
 
     public static void main(String[] args) {
-
+        new N叉树的后序遍历590().postorder(new Node(1,new ArrayList<Node>(){{
+            add(new Node(3,new ArrayList<Node>(){{
+                add(new Node(5,new ArrayList()));
+                add(new Node(6,new ArrayList()));
+            }}));
+            add(new Node(2,new ArrayList()));
+            add(new Node(4,new ArrayList()));
+        }}));
     }
-
     public List<Integer> postorder(Node root) {
-        if (root == null) {
-            return null;
-        }
-        Stack<Node> stack = new Stack<>();
-        List<Integer> res = new ArrayList<>();
+        LinkedList<Node> stack = new LinkedList<>();
+        LinkedList<Integer> res = new LinkedList<>();
         stack.push(root);
-        while (!stack.isEmpty()) {
-            Node node = stack.pop();
-            if (node.children == null) {
-                res.add(node.val);
-            } else {
-                for (int i = node.children.size() - 1; i >= 0; i--) {
-                    stack.push(node.children.get(i));
+        while(!stack.isEmpty()){
+            Node n = stack.pollLast();
+            res.addFirst(n.val);
+            for(Node child : n.children){
+                if(child!=null){
+                    stack.push(child);
                 }
             }
         }
