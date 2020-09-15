@@ -1,9 +1,6 @@
 package org.zhangzhewen.algorithm.tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 给定一个非空二叉树, 返回一个由每层节点平均值组成的数组。
