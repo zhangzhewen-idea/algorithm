@@ -1,5 +1,8 @@
 package org.zhangzhewen.algorithm.tree;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 给定一个二叉树，找到最长的路径，这个路径中的每个节点具有相同值。 这条路径可以经过也可以不经过根节点。
  *
@@ -135,4 +138,17 @@ public class 最长同值路径687 {
             this.right = right;
         }
     }
+
+    void dfs(Map<TreeNode,Integer> leafMap, TreeNode root, int d){
+        if(root==null){
+            return;
+        }
+        else if(root.left==null&&root.right==null){
+            leafMap.put(root,d);
+        }
+        dfs(leafMap,root.left,d+1);
+        dfs(leafMap,root.right,d+1);
+    }
+
+
 }
