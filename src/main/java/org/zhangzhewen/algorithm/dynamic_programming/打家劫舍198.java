@@ -1,5 +1,8 @@
 package org.zhangzhewen.algorithm.dynamic_programming;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
 
@@ -65,6 +68,10 @@ public class 打家劫舍198 {
             second = Math.max(first + nums[i], second);
             first = temp;
         }
+
+        List<Integer> t = new ArrayList();
+        t.remove(0);
+
         return second;
     }
 
