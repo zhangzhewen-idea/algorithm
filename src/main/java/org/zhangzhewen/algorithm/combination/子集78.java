@@ -1,4 +1,4 @@
-package org.zhangzhewen.algorithm.dynamic_programming;
+package org.zhangzhewen.algorithm.combination;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +52,5 @@ public class 子集78 {
         t.remove(t.size()-1);
         dfs(cur+1,nums);
     }
-
-
-
 
 }
