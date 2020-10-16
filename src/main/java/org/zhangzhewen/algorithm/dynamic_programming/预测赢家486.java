@@ -49,4 +49,5 @@ public class 预测赢家486{
         int scoreEnd = nums[end] * turn + total(nums, start, end - 1, -turn);
         return Math.max(scoreStart * turn, scoreEnd * turn) * turn;
     }*/
+
 }
