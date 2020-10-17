@@ -20,6 +20,10 @@ package org.zhangzhewen.algorithm.dynamic_programming;
  */
 public class 最长回文子串5 {
 
+    public static void main(String[] args) {
+        new 最长回文子串5().longestPalindrome("aba");
+    }
+
     public String longestPalindrome(String s) {
         int n = s.length();
         boolean[][] dp = new boolean[n][n];
