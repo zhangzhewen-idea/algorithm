@@ -1,4 +1,4 @@
-package org.zhangzhewen.algorithm.greedy;
+package org.zhangzhewen.algorithm.stack;
 
 import java.util.Stack;
 
