@@ -1,2 +1,4 @@
 /.idea
 org.zhangzhewen.algorithm.iml
+/target/classes/org/zhangzhewen/
+/algorithm.iml
