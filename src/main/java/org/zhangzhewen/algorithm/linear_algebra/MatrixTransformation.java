@@ -57,10 +57,10 @@ public class MatrixTransformation {
 
         Matrix P = new Matrix(fPoints);
         Matrix P2 = T.dot(P.T()).T();
-        plt.plot().add(
+       /* plt.plot().add(
                 Stream.of(P2.getList2d()).map(o->o[0]).collect(Collectors.toList()),
                 Stream.of(P2.getList2d()).map(o->o[1]).collect(Collectors.toList())
-                );
+                );*/
 
 //        plt.show();
         /*

@@ -23,7 +23,7 @@ public class LinearSystem {
         this.colNum = A.colNum()+1;
         this.Ab = new double[this.rowNum][];
         for (int i = 0; i < this.rowNum; i++) {
-            this.Ab[i] = Arrays.copyOf(A.getList2d()[i],colNum);
+//            this.Ab[i] = Arrays.copyOf(A.getList2d()[i],colNum);
             this.Ab[i][this.colNum-1] = b.getItem(i);
         }
     }
