@@ -1,6 +1,6 @@
 package org.zhangzhewen.algorithm.array;
 
-public class 解压缩编码列表1313 {
+public class 统计有序矩阵中的负数1351 {
 
     public int countNegatives(int[][] grid) {
         int c = 0;
