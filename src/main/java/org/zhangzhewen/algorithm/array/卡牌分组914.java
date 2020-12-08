@@ -16,6 +16,16 @@ public class 卡牌分组914 {
     static int gcd(int x, int y) {
         return x == 0 ? y : gcd(y % x, x);
     }
+    /*public int gcd(int a, int b) {
+        int remainder = a % b;
+        while (remainder != 0) {
+            a = b;
+            b = remainder;
+            remainder = a % b;
+        }
+        return b;
+    }*/
+
 
     public boolean hasGroupsSizeX(int[] deck) {
         if(deck.length==0 || deck.length==1){
