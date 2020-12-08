@@ -40,6 +40,8 @@ package org.zhangzhewen.algorithm.bit;
  * 一个数和0做XOR运算等于本身：a⊕0 = a
  * 一个数和其本身做XOR运算等于 0：a⊕a = 0
  * XOR 运算满足交换律和结合律：a⊕b⊕a = (a⊕a)⊕b = 0⊕b = b
+ * 异或运算： x ^ 0 = x, x ^ 1 = ~x
+ * 与运算： x & 0 = 0, x & 1 = x
  *
  * @author zhangzhewen
  * @date 2020/10/29

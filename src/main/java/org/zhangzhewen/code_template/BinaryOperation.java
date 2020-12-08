@@ -27,14 +27,26 @@ public class BinaryOperation {
     清零最低位的1
     得到最低位的1
 
-
+ * 使用异或运算可以解题主要因为异或运算有以下几个特点：
+ *
+ * 异或运算： x ^ 0 = x, x ^ 1 = ~x
+ * 与运算： x & 0 = 0, x & 1 = x
  * 一个数和0做XOR运算等于本身：a⊕0 = a
  * 一个数和其本身做XOR运算等于 0：a⊕a = 0
  * XOR 运算满足交换律和结合律：a⊕b⊕a = (a⊕a)⊕b = 0⊕b = b
  * 可以用来查找缺的元素，如 https://leetcode-cn.com/problems/find-the-difference/
+
 */
 
-
+/**
+ * 位运算leetcode题目：
+ *
+ * 只出现一次的数字 II
+ * 只出现一次的数字 III
+ * 数组中两个数的最大异或值
+ * 重复的DNA序列
+ * 最大单词长度乘积
+ */
 
 
 
