@@ -8,6 +8,7 @@ package org.zhangzhewen.algorithm.static_search;
  */
 public class BinarySearch extends Base{
 
+
     protected int search2(int[] nums,int target) {
         int low = 0;
         int high = nums.length - 1;
@@ -27,8 +28,16 @@ public class BinarySearch extends Base{
 
 
     protected int search(int[] nums,int target) {
-
-        return -1;
+        int l = 0,h = nums.length;
+        while(l<h){
+            int mid = l+(h-l)/2;
+            if(nums[mid]<target){
+                l=mid+1;
+            }else{
+                h = mid;
+            }
+        }
+        return l;
     }
 
 
@@ -54,6 +63,6 @@ public class BinarySearch extends Base{
 
 
     public static void main(String[] args) {
-        new BinarySearch().run();
+        new BinarySearch().search(new int[]{1,2,2,2,3},2);
     }
 }
