@@ -22,6 +22,7 @@ public abstract class Sortable {
 
 /*
 文章：https://www.jianshu.com/p/4753b10a482c
+挺好的一个经典排序攻略：https://github.com/hustcc/JS-Sorting-Algorithm
 
     平均时间复杂度     最好情况    最坏情况    空间复杂度   排序方式    稳定性
 冒泡
