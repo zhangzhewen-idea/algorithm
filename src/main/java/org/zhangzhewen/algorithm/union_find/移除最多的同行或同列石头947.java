@@ -1,8 +1,6 @@
-package org.zhangzhewen.algorithm;
+package org.zhangzhewen.algorithm.union_find;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

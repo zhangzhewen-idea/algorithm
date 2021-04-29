@@ -13,14 +13,16 @@ public abstract class Sortable {
         }
     }
     protected void swap(int[] a,int i,int j){
-        int tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
+        a[j] ^= a[i];
+        a[i] ^= a[j];
+        a[j] ^= a[i];
     }
 }
 
 
 /*
+文章：https://www.jianshu.com/p/4753b10a482c
+
     平均时间复杂度     最好情况    最坏情况    空间复杂度   排序方式    稳定性
 冒泡
 选择
