@@ -127,6 +127,8 @@ public class QuickSort implements SortAlgorithm {
 
         //Output => 0 1 1 2 2 3 4 5 5 5 7 8 9 12 32 44 111
         print(array);
+        System.out.println("应该是");
+        System.out.println("[0 1 1 2 2 3 4 5 5 5 7 8 9 12 32 44 111]");
 
         String[] stringArray = {"c", "a", "e", "b", "d"};
         quickSort.sort2(stringArray);
