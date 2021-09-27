@@ -52,7 +52,9 @@ class MergeSort implements SortAlgorithm {
      *              merges two parts of an array in increasing order
      **/
 
-    /* 还有种方法是，先复制，后比较设置到原数组，见算法4-170页*/
+    /* 还有种方法是，先复制，后比较设置到原数组，见算法4-170页
+    * 自底向上：算法4-176页
+    * */
     private static <T extends Comparable<T>> void merge(T[] arr, int left, int mid, int right) {
         int length = right - left + 1;
         T[] temp = (T[]) new Comparable[length];
