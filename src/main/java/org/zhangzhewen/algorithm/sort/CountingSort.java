@@ -65,13 +65,34 @@ public class CountingSort extends Sortable {
     }
 
     @Override
-    public int[] sort(int[] a) {
+    public int[] sort(int[] nums) {
 
 
+        int len = nums.length;
 
+        int max = nums[0],min=max;
 
+        for(int i = 0 ; i < len;i++){
+            if(max<nums[i]){
+                max=nums[i];
+            }
+            if(min>nums[i]){
+                min=nums[i];
+            }
+        }
+        int base = min*-1;
 
-        return a;
+        int[] bucket = new int[max-min+1];
+        for(int i : nums){
+            bucket[i+base]++;
+        }
+        for(int i = 0,j=0 ; i < bucket.length;i++){
+            while(--bucket[i]>=0){
+                nums[j++]=i-base;
+            }
+        }
+
+        return nums;
     }
 
 
