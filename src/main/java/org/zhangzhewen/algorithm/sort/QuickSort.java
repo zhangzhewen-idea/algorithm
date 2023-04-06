@@ -86,7 +86,6 @@ public class QuickSort implements SortAlgorithm {
 
     public <T extends Comparable<T>> T[] sort2(T[] a) {
 
-
         return a;
     }
 

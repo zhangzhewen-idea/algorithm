@@ -1,12 +1,21 @@
 package org.zhangzhewen;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import sun.misc.Unsafe;
 
-import org.zhangzhewen.algorithm.MergeKLists;
+import java.lang.reflect.Field;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.stream.Collectors;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
+import org.zhangzhewen.User;
+
+import javax.sound.sampled.AudioInputStream;
 
 /**
  * t
@@ -14,137 +23,58 @@ import java.util.PriorityQueue;
  * @author zhangzhewen
  * @date 2020/6/12
  */
+
+@Data
 public class Practise {
-    public static void main(String[] args) {
-//        System.out.println(new t().minDistance("arise", "rise"));
-
-        Practise p = new Practise();
-        TreeNode _1 = p.new TreeNode(1);
-        TreeNode _2 = p.new TreeNode(2);
-        TreeNode _3 = p.new TreeNode(3);
-        TreeNode _4 = p.new TreeNode(4);
-        TreeNode _5 = p.new TreeNode(5);
-        TreeNode _6 = p.new TreeNode(6);
-        TreeNode _7 = p.new TreeNode(7);
-
-        _1.left = _2;
-        _1.right = _3;
-        _2.left = _4;
-        _2.right = _5;
-        _3.left = _6;
-        _3.right = _7;
-
-        List<List<Integer>> res = new ArrayList<>();
-        res.add(new ArrayList() {{
-            add(2);
-        }});
-        res.add(new ArrayList() {{
-            add(3);
-            add(4);
-        }});
-        res.add(new ArrayList() {{
-            add(6);
-            add(5);
-            add(7);
-        }});
-        res.add(new ArrayList() {{
-            add(4);
-            add(1);
-            add(8);
-            add(3);
-        }});
-
-
-//        System.out.println(maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
-
-
-//        System.out.println(maxProduct(new int[]{2,3,-2,4}));
-
-//        System.out.println(majorityElement(new int[]{3,2,3}));
-
-
-//        p.isValidBST(_1);
-
-//        System.out.println(numIslands(new char[][]{{'1','0'},{'0','1'}}));
-
-
-//        System.out.println(lengthOfLIS(new int[]{1,3,6,7,9,4,10,5,6}));
-//        System.out.println(coinChange(new int[]{1,2,5},11));
-
-//        System.out.println(fib(7));
-
-        /*PriorityQueue<Integer> pp = new PriorityQueue<Integer>(3);
-        pp.add(9);
-        pp.add(10);
-        pp.add(50);
-
-        KthLargest a = new KthLargest(3,new int[]{4,5,8,2});
-        System.out.println();*/
-
-        Practise p1 = new Practise();
-//        p1.lengthOfLongestSubstring("abba");
-
-//        p1.removeElement(new int[]{2, 2, 3}, 2);
-//        p1.findMedianSortedArrays(new int[]{1, 2,6},new int[]{3,4,5,7,8,9,10,11,12,13,14,15,16,17,18,19});
-
-
-//        int[] arr = new int[]{5,3,1,2,6,9,8,7,20};
-//        int k = 3;
-//        System.out.println(p1.kuaipaiGetK(arr,4,0,arr.length-1));
-
-
-    }
-
-    public int eraseOverlapIntervals(int[][] intervals) {
-
-        return 0;
-    }
-
-
-
     /*
 
+    1、任意一个偶数（大于2）都可以由2个素数组成，而且组合情况有多种，编程实现输入一个偶数输出两个素数差值最小的素数对 ****
+    备注：质数又称素数。一个大于1的自然数，除了1和它自身外，不能被其他自然数整除的数叫做质数；否则称为合数（规定1既不是质数也不是合数）。
+    举例：输入：10；有2个素数对：3,7 以及 5 5；；；输出：5 - 5 = 0
+
+    2、用2种方式 实现 单例
+
+    3、启动4个线程，2个线程对变量i加一，2个线程对变量i减一 ；只要执行一次，不要求前后顺序。
+
+    公办高校验证地址 https://www.chsi.com.cn/xlcx/lscx/query.do
+      民办高校验证地址 http://www.ckhci.com.cn/
+    https://sms-activate.org/cn
      */
+    static volatile int index = 0;
 
-    static class KthLargest {
 
-        private PriorityQueue<Integer> priorityQueue;
-        private int k;
+    static Map<String, Integer> count = new HashMap();
 
-        public KthLargest(int k, int[] nums) {
-            this.k = k;
-            priorityQueue = new PriorityQueue<>(k);
-            for (int n : nums) {
-                add(n);
+    static void handle(String s) {
+        StringBuilder word = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ' ') {
+                count.put(word.toString(),
+                        count.getOrDefault(word.toString(), 0) + 1);
+                word = new StringBuilder();
+            } else {
+                word.append(s.charAt(i));
             }
         }
+        count.put(word.toString(),
+                count.getOrDefault(word.toString(), 0) + 1);
+    }
 
-        public int add(int val) {
-            if (priorityQueue.size() < k) {
-                priorityQueue.offer(val);
-            } else if (priorityQueue.peek() < val) {
-                priorityQueue.poll();
-                priorityQueue.offer(val);
-            }
-            return priorityQueue.peek();
+    static int 超级电脑(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    void swap(int[] n, int i, int j) {
+        if (i != j) {
+            int a = n[i];
+            n[i] = n[j];
+            n[j] = a;
         }
     }
 
-/**
- * Your KthLargest object will be instantiated and called as such:
- * KthLargest obj = new KthLargest(k, nums);
- * int param_1 = obj.add(val);
- */
-
-
-    /**
-     * Your Trie object will be instantiated and called as such:
-     * Trie obj = new Trie();
-     * obj.insert(word);
-     * boolean param_2 = obj.search(word);
-     * boolean param_3 = obj.startsWith(prefix);
-     */
-
+    static int gcd(int x, int y) {
+        return x == 0 ? y : gcd(y % x, x);
+    }
 
     public static int min(int... a) {
         int min = a[0];
@@ -167,7 +97,7 @@ public class Practise {
     }
 
 
-    class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 
@@ -175,16 +105,9 @@ public class Practise {
             val = x;
         }
 
-        @Override
-        public String toString() {
-            return "ListNode{" +
-                    "val=" + val +
-                    ", next=" + next +
-                    '}';
-        }
     }
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -192,5 +115,80 @@ public class Practise {
         TreeNode(int x) {
             val = x;
         }
+    }
+
+    public int[][] findContinuousSequence(int target) {
+        List<int[]> ans = new ArrayList();
+        LinkedList<Integer> sub = new LinkedList();
+        int sum =0,s=1,f=2;
+        sub.add(1);
+        while(f<=target){
+            sub.add(f);
+            sum+=f;
+            while(sum>target){
+                sum-=s;
+                s++;
+            }
+            if(sum==target){
+                ans.add(Arrays.stream(sub.stream().toArray()).mapToInt(o->(int)o).toArray());
+            }
+            f++;
+        }
+        return ans.toArray(new int[ans.size()][]);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+//        new Practise().getLeastNumbers(new int[]{0,0,1,2,4,2,2,3,1,4},8);
+//        new Practise().getLeastNumbers(new int[]{3,2,1},2);
+
+
+
+        System.out.println();
+        Person 怪兽 = new Person();
+        怪兽.名字 = "怪兽";
+        怪兽.攻击力 = 100;
+        怪兽.防御力 = 90;
+        怪兽.血 = 1001;
+        Person 张峻祎 = new Person();
+        张峻祎.名字 = "张峻祎";
+        张峻祎.攻击力 = 300;
+        张峻祎.防御力 = 200;
+        张峻祎.血 = 400;
+        Person 陈文美 = new Person();
+        陈文美.名字 = "陈文美";
+        陈文美.攻击力 = 10;
+        陈文美.防御力 = 9;
+        陈文美.血 = 11;
+
+        张峻祎.攻击(怪兽);
+        陈文美.攻击(怪兽);
+        张峻祎.攻击(怪兽);
+        陈文美.攻击(怪兽);
+        怪兽.攻击(陈文美);
+    }
+}
+
+abstract class Base {
+    public String 名字;
+    public long 血;
+    public long 攻击力;
+    public long 防御力;
+
+    abstract void 攻击(Base b);
+}
+
+@AllArgsConstructor
+class Person extends Base {
+
+    public void 攻击(Base b) {
+        b.血 -= this.攻击力;
+        System.out.println(this.名字+"打"+b.名字);
+        System.out.println(this.名字 + "说：哈哈哈哈！" + b.名字 + "的血只有" + b.血 + "了！");
+        if (b.血 < 0) {
+            System.out.println(b.名字 + "说：啊！！！我死了。。。" + this.名字 + "好厉害！");
+        } else {
+            System.out.println(b.名字 + "说：啊！！！我飞了！！我还会回来的，" + this.名字 + "你等着！");
+        }
+        System.out.println();
     }
 }
