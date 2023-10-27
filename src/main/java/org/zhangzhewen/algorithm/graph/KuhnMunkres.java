@@ -11,12 +11,23 @@ public class KuhnMunkres {
         int[][] arr = new int[][]{
                 {3,-1,4},
                 {2,1,3},
-                {-1,-1,5}
+                {0,0,5}
+        };
+
+        int[][] arr2 = new int[][]{
+                {3,2,0},
+                {3,0,1},
+                {0,0,0}
         };
         new Km().calc(arr);
-//        System.out.println(new KuhnMunkresAlgorithm().getKM(arr.length, arr[0].length, arr));
+        System.out.println(new KuhnMunkresAlgorithm().getKM(arr.length, arr[0].length, arr));
     }
 
+    /*
+    dfs教程：https://leetcode.cn/problems/campus-bikes-ii/solutions/808042/zhuang-tai-ya-suo-dp-xiong-ya-li-suan-fa-l6ui/?q=km&orderBy=most_relevant
+    bfs教程：https://leetcode.cn/problems/campus-bikes-ii/solutions/1262960/on3-xiong-ya-li-suan-fa-km-suan-fa-fu-ja-sb4z/?q=km&orderBy=most_relevant
+
+    */
     static class KuhnMunkresAlgorithm {
 
         private int[][] weights; // 无向图中的权重
@@ -134,65 +145,64 @@ public class KuhnMunkres {
      */
     static class Km{
         private int[][] weights;
-        private int[] lx,ly,matches;
-        private int x,y;
+        private int[] lx,ly;
         private boolean[] sx,sy;
-        public void calc(int[][] origin){
-            x = origin.length;
-            y = origin[0].length;
-            matches = new int[x];
+        private int[] matches;
+        public int calc(int[][] o ){
+
+            weights = o;
+            lx = new int[weights.length];
+            ly = new int[weights.length];
+            sx = new boolean[weights.length];
+            sy = new boolean[weights.length];
+            matches = new int[weights.length];
             Arrays.fill(matches,-1);
-            weights= new int[x][y];
-            lx = new int[x];
-            ly = new int[y];
-            sy = new boolean[y];
-            sx = new boolean[x];
-            for (int i = 0; i < x; i++) {
-                for (int j = 0; j < y; j++) {
-                    weights[i][j]=origin[i][j];
-                    lx[i]=Math.max(lx[i],weights[i][j]);
+
+            for (int i = 0; i < weights.length; i++) {
+                for (int j = 0; j < weights.length; j++) {
+                    lx[i] = Math.max(lx[i],weights[i][j]);
                 }
             }
-            for (int i = 0; i < x; i++) {
+
+            for (int i = 0; i < weights.length; i++) {
                 while(true){
                     Arrays.fill(sx,false);
                     Arrays.fill(sy,false);
-                    if(augmentation(i)){
+                    if(augment(i)){
                         break;
                     }
-                    int min = Integer.MAX_VALUE;
-                    for (int j = 0; j <x; j++) {
-                        for (int k = 0; k < y; k++) {
+                    int delta = Integer.MAX_VALUE;
+                    for (int j = 0; j < weights.length; j++) {
+                        for (int k = 0; k < weights.length; k++) {
                             if(sx[j]&&!sy[k]){
-                                min = Math.min(min,lx[j]+ly[k]-weights[j][k]);
+                                delta = Math.min(delta,lx[j]+ly[k]-weights[j][k]);
                             }
                         }
                     }
-                    for (int j = 0; j < x; j++) {
+                    for (int j = 0; j < weights.length; j++) {
                         if(sx[j]){
-                            lx[j]-=min;
+                            lx[j]-=delta;
                         }
-                    }
-                    for (int j = 0; j < y; j++) {
                         if(sy[j]){
-                            ly[j]+=min;
+                            ly[j]+=delta;
                         }
                     }
                 }
             }
-
-            for (int i = 0; i < matches.length; i++) {
+            int sum =0;
+            for (int i = 0; i < weights.length; i++) {
+                sum += weights[matches[i]][i];
                 System.out.println("x:"+matches[i]+" to y:"+i+" weight:"+weights[matches[i]][i]);
             }
-
+            return sum;
         }
 
-        boolean augmentation(int i){
-            sx[i] = true;
-            for (int j = 0; j < y; j++) {
+        private boolean augment(int i) {
+            sx[i]=true;
+            for (int j = 0; j < weights.length; j++) {
                 if(!sy[j]&&lx[i]+ly[j]==weights[i][j]){
                     sy[j]=true;
-                    if(matches[j]==-1||augmentation(matches[j])){
+                    if(matches[j]==-1||augment(matches[j])){
                         matches[j]=i;
                         return true;
                     }
@@ -202,4 +212,9 @@ public class KuhnMunkres {
         }
 
     }
+
+
 }
+
+
+

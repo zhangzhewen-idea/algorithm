@@ -1,5 +1,9 @@
 package org.zhangzhewen;
 
+import com.headingdata.trans.JavaTrans;
+import com.headingdata.trans.pojos.LngLatPoint;
+import com.headingdata.trans.pojos.QueryRoadType;
+import com.headingdata.trans.pojos.ResultBean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -138,11 +142,6 @@ public class Practise {
     }
 
     public static void main(String[] args) throws InterruptedException {
-//        new Practise().getLeastNumbers(new int[]{0,0,1,2,4,2,2,3,1,4},8);
-//        new Practise().getLeastNumbers(new int[]{3,2,1},2);
-
-
-
         System.out.println();
         Person 怪兽 = new Person();
         怪兽.名字 = "怪兽";
